@@ -1,0 +1,152 @@
+[
+  {
+    "id": "birth",
+    "year": 1985,
+    "period": "1985",
+    "title": "生まれる",
+    "description": "この音楽の記録は、1985年生まれの自分から。",
+    "dating": "confirmed",
+    "eraNotes": {
+      "musicPlayed": null,
+      "musicListenedTo": null,
+      "creativeMindset": null,
+      "reflectionNow": null
+    },
+    "trackIds": []
+  },
+  {
+    "id": "guitar",
+    "year": 1999,
+    "period": "中学2年生 · 1999年度（仮）",
+    "title": "ギターを始める",
+    "description": "音楽を聴く側から、自分で弾く側へ。",
+    "dating": "inferred",
+    "eraNotes": {
+      "musicPlayed": null,
+      "musicListenedTo": null,
+      "creativeMindset": null,
+      "reflectionNow": null
+    },
+    "trackIds": []
+  },
+  {
+    "id": "punk",
+    "year": 2001,
+    "period": "高校1年生 · 2001年度（仮）",
+    "title": "パンクバンドを組む",
+    "description": "最初のバンドは、パンクバンド。",
+    "dating": "inferred",
+    "eraNotes": {
+      "musicPlayed": null,
+      "musicListenedTo": null,
+      "creativeMindset": null,
+      "reflectionNow": null
+    },
+    "trackIds": []
+  },
+  {
+    "id": "rock",
+    "year": 2002,
+    "period": "高校2年生 · 2002年度（仮）",
+    "title": "女性ボーカルのロックバンドを組む",
+    "description": "女性ボーカルのロックバンドで活動する。",
+    "dating": "inferred",
+    "eraNotes": {
+      "musicPlayed": null,
+      "musicListenedTo": null,
+      "creativeMindset": null,
+      "reflectionNow": null
+    },
+    "trackIds": []
+  },
+  {
+    "id": "school",
+    "year": 2004,
+    "period": "高校卒業後 · 2004年ごろ（仮）",
+    "title": "音楽の専門学校へ進む",
+    "description": "高校卒業後、音楽の専門学校へ。",
+    "dating": "inferred",
+    "eraNotes": {
+      "musicPlayed": null,
+      "musicListenedTo": null,
+      "creativeMindset": null,
+      "reflectionNow": null
+    },
+    "trackIds": []
+  },
+  {
+    "id": "jazz",
+    "year": null,
+    "period": "専門学校に進んだ後 · 年未確認",
+    "title": "ジャズを習う",
+    "description": "ジャズを学ぶ。時期や当時の話は、これから追記する。",
+    "dating": "unknown",
+    "eraNotes": {
+      "musicPlayed": null,
+      "musicListenedTo": null,
+      "creativeMindset": null,
+      "reflectionNow": null
+    },
+    "trackIds": []
+  },
+  {
+    "id": "felice",
+    "year": null,
+    "period": "ユニット活動 · 年未確認",
+    "title": "felice を組む",
+    "description": "feliceというユニットを組む。",
+    "dating": "unknown",
+    "eraNotes": {
+      "musicPlayed": null,
+      "musicListenedTo": null,
+      "creativeMindset": null,
+      "reflectionNow": null
+    },
+    "trackIds": []
+  },
+  {
+    "id": "patalp",
+    "year": null,
+    "period": "ユニット活動 · 年未確認",
+    "title": "patalp を組む",
+    "description": "patalpというユニットを組む。",
+    "dating": "unknown",
+    "eraNotes": {
+      "musicPlayed": null,
+      "musicListenedTo": null,
+      "creativeMindset": null,
+      "reflectionNow": null
+    },
+    "trackIds": []
+  },
+  {
+    "id": "chiba",
+    "year": null,
+    "period": "千葉に帰ってから · 年未確認",
+    "title": "暮らしの中で、音楽を続ける",
+    "description": "千葉に帰ってきて、フリーターをしながら音楽をゆるく続ける。",
+    "dating": "unknown",
+    "eraNotes": {
+      "musicPlayed": null,
+      "musicListenedTo": null,
+      "creativeMindset": null,
+      "reflectionNow": null
+    },
+    "trackIds": []
+  },
+  {
+    "id": "engineer",
+    "year": null,
+    "period": "その後 · 年未確認",
+    "title": "ITエンジニアとして就職する",
+    "description": "ITエンジニアとして就職する。",
+    "dating": "unknown",
+    "eraNotes": {
+      "musicPlayed": null,
+      "musicListenedTo": null,
+      "creativeMindset": null,
+      "reflectionNow": null
+    },
+    "trackIds": []
+  }
+]
