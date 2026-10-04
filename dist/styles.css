@@ -230,8 +230,8 @@ main{padding-top:28px}
 #credits{margin:10px 0 0;display:flex;gap:8px}
 #credits .credit-tag{color:var(--accent);font-size:11px}
 #detail .detail-actions{margin:24px 0 30px;gap:12px}
-#detail-source,#detail .primary{font:400 12px/1.5 var(--sans);min-height:40px;padding:10px 16px;border-radius:24px;background:transparent;border:1px solid var(--line-strong);color:var(--ink);text-decoration:none}
-#detail-source:hover,#detail .primary:hover{background:rgba(112,100,80,.06);border-color:var(--accent)}
+#detail .primary{font:400 12px/1.5 var(--sans);min-height:40px;padding:10px 16px;border-radius:24px;background:transparent;border:1px solid var(--line-strong);color:var(--ink);text-decoration:none}
+#detail .primary:hover{background:rgba(112,100,80,.06);border-color:var(--accent)}
 #detail-tabs{gap:24px;margin:0 0 24px}
 #detail-tabs button{font-weight:400;color:var(--muted)}
 #detail-tabs button[aria-pressed=true]{color:var(--accent);border-color:var(--accent)}
@@ -320,5 +320,12 @@ main{padding-top:28px}
  .site-header .site-nav a{padding:8px 9px;font-size:12px}
 }
 
-#detail-share{font-size:13px;min-height:44px;padding:8px 0;text-decoration:underline;text-underline-offset:4px}
+#detail .detail-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;min-height:44px;padding:11px;border:1px solid var(--line-strong);border-radius:50%;background:transparent;color:var(--ink)}
+#detail .detail-icon:hover{background:rgba(112,100,80,.06);border-color:var(--accent)}
+.detail-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.detail-icon .play-symbol{fill:currentColor;stroke:none}
+.detail-icon .copied-symbol{display:none}
+.detail-icon[data-copied="true"] .copy-symbol{display:none}
+.detail-icon[data-copied="true"] .copied-symbol{display:block}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 #share-url{width:100%;padding:10px;border:1px solid var(--line);border-radius:4px;margin-bottom:18px;background:var(--bg);color:var(--ink);font:13px/1.6 var(--sans)}

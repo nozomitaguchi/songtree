@@ -77,3 +77,7 @@ Live recheck: public portfolio and Songtree both measured header 88px × 1180px 
 Problem: a shared site link did not identify an open song. Added ?song=<stable track id>, History API navigation, direct-load restoration, and a compact copy-link button. Closing or starting playback returns to the base URL; Back and Forward restore the detail state. No automatic playback from links. Clipboard failure reveals a selectable URL. npm run check passed; live routing checks follow deployment.
 
 Live recheck passed: opening kataguruma changed URL and page title; copy button reported success; reload restored its modal with audio paused; closing removed song query; Back reopened and Forward closed. white-trip shared state retained empty hidden lyrics. Published Actions completed successfully. Desktop screenshot reviewed: compact share control, no extra metadata or tree changes. Mobile browser viewport was not available for this check.
+
+## Detail action icons — 2026-10-05
+
+User requested symbol-only copy and play controls and removal of the Suno link. Replaced text buttons with lightweight SVG play/copy icons and 44px targets. Copy success shows a check mark and announces status through aria-live; accessible names and hover titles remain. Removed Suno DOM link and its JS updates. npm run check passed. Browser verification follows deployment.

@@ -33,7 +33,10 @@ window.addEventListener('popstate',syncTrackUrl);
 function openDetail(t,updateUrl=true){
  if(updateUrl)updateTrackUrl(t.id);
  document.title=t.title+' | Songtree';
- $('#detail-share').textContent='リンクをコピー';
+ $('#detail-share').dataset.copied='false';
+ $('#detail-share').setAttribute('aria-label','リンクをコピー');
+ $('#detail-share').title='リンクをコピー';
+ $('#share-status').textContent='';
  $('#share-url').hidden=true;
  $('#share-url').value=trackUrl(t.id).href;
  selectedDetail=t;
@@ -44,8 +47,6 @@ function openDetail(t,updateUrl=true){
  $('#credits').replaceChildren();
  for(const tag of t.creatorCreditTags||[])$('#credits').append(el('span',tag,'credit-tag'));
  $('#notes-then').textContent=notes;
- $('#detail-source').hidden=!t.sourceUrl;
- if(t.sourceUrl)$('#detail-source').href=t.sourceUrl;
  $('#detail-play').hidden=!t.audioSrc;
  $('.detail-actions').hidden=false;
  $('[data-panel="notes"]').hidden=!notes;
@@ -61,7 +62,7 @@ $('#close-detail').addEventListener('click',closeDetail);
 $('#detail').addEventListener('cancel',e=>{e.preventDefault();closeDetail();});
 $('#detail-share').addEventListener('click',async()=>{
  const url=trackUrl(selectedDetail.id).href;
- try{await navigator.clipboard.writeText(url);$('#detail-share').textContent='コピーしました';}
+ try{await navigator.clipboard.writeText(url);$('#detail-share').dataset.copied='true';$('#detail-share').setAttribute('aria-label','リンクをコピーしました');$('#detail-share').title='コピーしました';$('#share-status').textContent='リンクをコピーしました';}
  catch{$('#share-url').hidden=false;$('#share-url').value=url;$('#share-url').focus();$('#share-url').select();}
 });
 $('#detail').addEventListener('click',e=>{if(e.target===$('#detail')){const r=$('#detail').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeDetail();}});
