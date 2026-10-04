@@ -59,7 +59,7 @@ function render(track) {
   const fallback = track
     ? `<h1>${escape(track.title)}</h1><p>${escape(summary)}</p>${track.audioSrc ? `<audio controls src="${escape(track.audioSrc)}"></audio>` : ''}${track.lyricsByOwner && track.lyrics ? `<h2>歌詞</h2><pre>${escape(track.lyrics)}</pre>` : ''}${track.notesThen || track.notesNow ? `<h2>Production notes</h2><p>${escape([track.notesThen, track.notesNow].filter(Boolean).join('\n\n'))}</p>` : ''}<a href="${site}">Songtree</a>`
     : `<h1>Songtree</h1><p>${escape(description)}</p><ul>${tracks.map(t => `<li><a href="${trackUrl(t)}">${escape(t.title)}</a></li>`).join('')}</ul>`;
-  return template.replace('</head>', `${metadata}</head>`).replace('</body>', `<noscript data-seo><main>${fallback}</main></noscript></body>`);
+  return template.replace('<head>', `<head>${metadata}`).replace('</body>', `<noscript data-seo><main>${fallback}</main></noscript></body>`);
 }
 
 await rm(new URL('songs/', root), { recursive: true, force: true });
