@@ -306,3 +306,16 @@ main{padding-top:28px}
 .rock .commit-title,.rock .event-label{color:var(--rock)}
 .rock .credit-tag{color:var(--rock);opacity:.8}
 #detail[data-branch="rock"]{--accent:var(--rock)}
+
+/* Match the portfolio header at every viewport, with one concise title. */
+.site-header{width:min(1180px,calc(100% - 32px));min-height:88px;padding:18px 0 14px;column-gap:12px}
+.header-brand{gap:12px}
+.header-logo img{width:48px;height:48px}
+.site-header .header-brand h1{font-size:17px;line-height:1.2;font-weight:400}
+.site-header .site-nav{gap:8px}
+.site-header .site-nav a{padding:7px 9px 7px 7px}
+@media(max-width:640px){
+ .site-header{top:8px;width:min(calc(100% - 16px),1180px);margin-top:8px}
+ .site-header .site-nav{gap:4px}
+ .site-header .site-nav a{padding:8px 9px;font-size:12px}
+}

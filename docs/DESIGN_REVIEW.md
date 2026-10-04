@@ -65,3 +65,7 @@ Sunoの通常のMP3ダウンロードから全17曲を取得。曲IDごとのaud
 ## GitHub Pages公開確認 2026-10-05
 
 本人指定で公開先をGitHub Pagesに変更し、リポジトリ名をnozomitaguchi/songtreeへ変更。Sitesはownerのみの非公開に戻した。Actionsのdist配信が成功し、公開URLで17曲の一覧・最新順・feliceの確定順を確認。かたぐるまの再生操作でaudioのreadyState=4、paused=false、currentTimeの進行、duration=235.56秒、errorなしを確認し、閉じる操作で再生を終了。PCの公開画面をdocs/screenshots/songtree-public.jpgに記録。スマホ画面の再確認は未実施。
+
+## Portfolio header alignment — 2026-10-05
+
+Problem: logo and title differed from portfolio, especially mobile. Live portfolio: header 88px, logo 48px, title 17px / weight 400. Changed Songtree to those dimensions and the same SNS spacing, removed byline to preserve one row. Tree typography unchanged. npm run check passed. Live browser comparison follows deployment.
