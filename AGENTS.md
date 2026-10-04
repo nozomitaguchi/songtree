@@ -1,6 +1,6 @@
 # Song Tree 制作ルール
 
-このリポジトリはSong Tree。曲にフォーカスするサイト。Privateを維持する。明示的な公開指示なしでGitHub・サイトを一般公開しない。
+このリポジトリはSongtree。曲にフォーカスするサイト。2026-10-05本人指定によりGitHubリポジトリをpublic、公開先をGitHub Pagesとする。Sitesは本人専用の非公開プレビューとして維持する。
 
 ## コンテンツ
 
@@ -61,3 +61,5 @@ Nodeの標準APIで維持できる範囲では依存を増やさない。npm run
 2026-10-05最新：moonbow・finderは高校のRock bandに所属する曲。Rock bandの節目と2曲を専用の色と枝で表示し、古い主線のPunk bandから上向きに分岐させる。felice・patalpと同じ枝の表現を使用。年代が重ならないためrockはfeliceと同じ横位置を再利用し、スマホのツリー幅を増やさない。枝ごとに起点を求め、後のユニットを高校の起点につなげない。
 
 2026-10-05本人確認：feliceの制作順はtwo of us → midflower → 空 → ホワイトトリップ。historyのtrackIdsはこの古い順を正本にし、画面は逆順に表示する。年度は引き続き配置用の仮年で、制作順の確定と年の確定を混同しない。
+
+2026-10-05公開先：GitHub Pages。mainへのpushで.github/workflows/pages.ymlが検証後distだけを配信する。sourcesやdocs、.openaiはPagesに含めない。GitHubリポジトリ自体は本人指定のpublic。Sitesで公開範囲をpublicに戻さない。

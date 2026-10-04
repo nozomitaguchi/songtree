@@ -2,7 +2,7 @@
 
 nozomitaguchiの曲を、枝分かれする履歴としてたどるサイト。曲が主役。曲名を常時表示し、音源・歌詞・ライナーノーツを開いて楽しむ。曲以外の節目は年の横に短い英語ラベルで表示する。詳しい背景は資料として保持する。
 
-**Private repository / main**。曲の目録・音源・歌詞・Production notesを収録。一般公開はしない。
+**Public repository / main**。曲の目録・音源・歌詞・Production notesを収録。GitHub Pagesで公開する。
 
 ## 起動
 
@@ -32,7 +32,7 @@ Gitの履歴に似たツリーで表示する。本人の音楽の歩みを幹�
 - 年度の仮置きは `dating: inferred`。未確認の年は `null`。年・活動内容を推測で確定しない。
 - `lyricsByOwner: true` の曲だけ歌詞を表示する。それ以外はデータに歌詞を入れず、歌詞ボタンも表示しない。
 - 作詞者・作曲者は分ける。共同制作の場合は、音源公開の可否も確認する。
-- 本番公開で非掲載歌詞を配信データに含めない。非公開リポジトリと非公開サイトは別々に管理する。
+- 本番公開で非掲載歌詞を配信データに含めない。GitHub Pagesの公開サイトとSitesの非公開プレビューは別々に管理する。
 - 実音源・歌詞・写真は許可されたものだけ追加する。
 
 ## ファイル
@@ -46,7 +46,7 @@ Gitの履歴に似たツリーで表示する。本人の音楽の歩みを幹�
 
 GitHubを正本とする。Sitesで修正した場合も同じソースをGitHubへ反映する。
 
-`sources/` は取得データの私有保存。配信はdistのみ。felice以外の13曲は本人の作詞作曲と確認済み。取得した歌詞を配信する。feliceは曲名・リンク・音源のみを収録し、歌詞を掲載しない。
+`sources/` は出典を記録する資料。GitHubリポジトリでは公開されるが、Pagesの配信はdistのみ。felice以外の13曲は本人の作詞作曲と確認済み。取得した歌詞を配信する。feliceは曲名・リンク・音源のみを収録し、歌詞を掲載しない。
 
 書体と共通枠はポートフォリオに統一（Quicksand / Zen Kaku Gothic New、同じロゴ・SNS・明るい背景・中央揃えのフッター）。スマホのヘッダーは1段。
 
@@ -55,3 +55,7 @@ GitHubを正本とする。Sitesで修正した場合も同じソースをGitHub
 Production notesは本人のポートフォリオにある8曲の本文を転記。原文の出典URL・GitHub blob SHAをtracks.jsonに記録し、転記前のノーツ本文をsources/production-notes.jsonに保存。未掲載曲のノーツは創作しない。
 
 最新ヘッダーはポートフォリオのアイコンと、Songtree by nozomitaguchiを隣り合わせの1行で表示。
+
+## GitHub Pages
+
+GitHubのSettings → PagesでSourceをGitHub Actionsに設定。mainへのpushまたはActionsの手動実行で検証し、distだけを公開する。公開URLはhttps://nozomitaguchi.github.io/music-timeline/。Sitesは非公開プレビューとして維持。
