@@ -6,8 +6,28 @@ const audio=$('#audio');
 function releaseAudio(){audio.pause();audio.removeAttribute('src');audio.load();if(localAudioUrl){URL.revokeObjectURL(localAudioUrl);localAudioUrl=null;}$('#audio-file').value='';}
 function selectTrack(t){if(selected?.id!==t.id){releaseAudio();selected=t;audio.hidden=!t.audioSrc;$('#audio-status').textContent=t.audioSrc?'登録音源':'音源未登録 · 手元の音源で試せます';if(t.audioSrc)audio.src=t.audioSrc;}$('#playing-title').textContent=t.title;$('#player').hidden=false;document.body.classList.add('has-player');}
 function setPanel(panel){if(panel==='lyrics'&&!selectedDetail?.lyricsByOwner)return;$('#notes-panel').hidden=panel!=='notes';$('#lyrics-panel').hidden=panel!=='lyrics';document.querySelectorAll('[data-panel]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.panel===panel)));}
-function openDetail(t){selectedDetail=t;$('#event-notes').hidden=true;$('#credits').hidden=false;$('.detail-actions').hidden=false;$('#detail-tabs').hidden=false;$('#lyric-status').hidden=false;$('#detail-kind').textContent='SONG / COMMIT';$('#detail-period').textContent=events.find(e=>e.id===t.historyEventId)?.shortLabel||t.displayPeriod;$('#detail-title').textContent=t.title;$('#credits').textContent='作曲：'+t.composer+(t.lyricist?' ／ 作詞：'+t.lyricist:' ／ 作詞：未確認')+(t.audioVersionYear?' ／ 音源制作：'+t.audioVersionYear:'');$('#notes-then').textContent=t.notesThen||'曲ごとのノーツは、これから。時代の背景は履歴の「時代のノーツ」で読めます。';$('#notes-now').textContent=t.notesNow||'現在の音源や、今聴いて感じることを追記します。';$('#detail-source').hidden=!t.sourceUrl;if(t.sourceUrl)$('#detail-source').href=t.sourceUrl;$('#lyric-status').textContent=t.lyricsByOwner?'':t.lyricCreditStatus==='unconfirmed'?'作詞者を確認してから、歌詞を掲載します。':'作詞：'+t.lyricist+'。歌詞は掲載しません。';$('[data-panel="lyrics"]').hidden=!t.lyricsByOwner||!t.lyrics;$('#lyrics').textContent=t.lyricsByOwner?(t.lyrics||''):'';setPanel('notes');$('#detail').showModal();}
-$('#detail-play').addEventListener('click',()=>{selectTrack(selectedDetail);$('#detail').close();$('#audio-file').focus();});
+function openDetail(t){
+ selectedDetail=t;
+ const hasLyrics=Boolean(t.lyricsByOwner&&t.lyrics);
+ const notes=[t.notesThen,t.notesNow].filter(Boolean).join('\n\n');
+ $('#detail').dataset.branch=branchFor(events.find(e=>e.id===t.historyEventId)||{});
+ $('#detail-title').textContent=t.title;
+ $('#credits').replaceChildren();
+ for(const tag of t.creatorCreditTags||[])$('#credits').append(el('span',tag,'credit-tag'));
+ $('#notes-then').textContent=notes;
+ $('#detail-source').hidden=!t.sourceUrl;
+ if(t.sourceUrl)$('#detail-source').href=t.sourceUrl;
+ $('#detail-play').hidden=!t.audioSrc;
+ $('.detail-actions').hidden=!t.sourceUrl&&!t.audioSrc;
+ $('[data-panel="notes"]').hidden=!notes;
+ $('[data-panel="lyrics"]').hidden=!hasLyrics;
+ $('#detail-tabs').hidden=!(notes&&hasLyrics);
+ $('#lyrics').textContent=hasLyrics?t.lyrics:'';
+ setPanel(hasLyrics?'lyrics':'notes');
+ $('#notes-panel').hidden=!notes||hasLyrics;
+ $('#detail').showModal();
+}
+$('#detail-play').addEventListener('click',()=>{selectTrack(selectedDetail);$('#detail').close();if(selectedDetail.audioSrc)audio.focus();else $('#audio-file').focus();});
 $('#close-detail').addEventListener('click',()=>$('#detail').close());
 $('#detail').addEventListener('click',e=>{if(e.target===$('#detail')){const r=$('#detail').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)$('#detail').close();}});
 document.querySelectorAll('[data-panel]').forEach(b=>b.addEventListener('click',()=>setPanel(b.dataset.panel)));
