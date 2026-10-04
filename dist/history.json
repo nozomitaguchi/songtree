@@ -94,30 +94,54 @@
     "year": null,
     "period": "ユニット活動 · 年未確認",
     "title": "felice を組む",
-    "description": "feliceというユニットを組む。",
+    "description": "ジャズのサークルのような活動で一緒だった、ボーカルのみきちゃんと組んだユニット。",
     "dating": "unknown",
     "eraNotes": {
-      "musicPlayed": null,
+      "musicPlayed": "みきちゃんはとても歌がうまく、最初は僕の作ったポップな曲を歌ってもらっていた。そこから少しずつ、ジャズや気だるい雰囲気の曲を作るようになっていった。",
       "musicListenedTo": null,
-      "creativeMindset": null,
-      "reflectionNow": null
+      "creativeMindset": "feliceの曲は、僕のジャズギタリストとしての側面から作っていたものだった。その音楽に合う歌詞を書く力は自分にはないと感じていたので、作詞は全面的にみきちゃんに任せていた。",
+      "reflectionNow": null,
+      "reworkingNow": "今、Sunoで当時の曲を再制作している。ポップスに比べて変則的な転調が多く、意図した音の関係をうまく再現してくれないことがある。不協和音のように聴こえる箇所が、今のところ多い。"
     },
-    "trackIds": []
+    "trackIds": [],
+    "members": [
+      {
+        "name": "みきちゃん",
+        "role": "ボーカル・作詞"
+      },
+      {
+        "name": "nozomitaguchi",
+        "role": "作曲・ギター"
+      }
+    ],
+    "lyricCreditsNote": "作詞はみきちゃんに全面的に任せていた。本人が作詞していない曲の歌詞は掲載しない。"
   },
   {
     "id": "patalp",
     "year": null,
     "period": "ユニット活動 · 年未確認",
     "title": "patalp を組む",
-    "description": "patalpというユニットを組む。",
+    "description": "学校の後輩にあたるリエコちゃんに、ライブを見た後で「僕の歌、歌ってください」と声をかけて始めたユニット。",
     "dating": "unknown",
     "eraNotes": {
-      "musicPlayed": null,
+      "musicPlayed": "スローバラードなど、自分の好きな曲を多く作っていた。作詞は、僕が担当した曲とリエコちゃんが担当した曲が、半分ずつくらい。",
       "musicListenedTo": null,
-      "creativeMindset": null,
-      "reflectionNow": null
+      "creativeMindset": "ジャズの曲を作る一方で、自分のソングライターとしての根源はポップスにあると思っていた。その方向の曲作りも続けたくて、リエコちゃんに声をかけた。",
+      "reflectionNow": null,
+      "reworkingNow": "当時の曲を今の生成AIで再制作しようとすると、曲が長すぎて、最後までうまく生成できないものが多い。"
     },
-    "trackIds": []
+    "trackIds": [],
+    "members": [
+      {
+        "name": "リエコちゃん",
+        "role": "ボーカル・作詞"
+      },
+      {
+        "name": "nozomitaguchi",
+        "role": "作曲・作詞"
+      }
+    ],
+    "lyricCreditsNote": "本人作詞とリエコちゃん作詞が半分ずつくらい。曲ごとに作詞者を確認し、本人作詞の曲だけ歌詞を掲載する。"
   },
   {
     "id": "chiba",
