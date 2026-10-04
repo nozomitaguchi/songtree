@@ -1,20 +1,21 @@
 [
   {
     "url": "https://suno.com/s/WfEfxD25wF6ud8Ix",
-    "associatedEvent": "felice",
-    "title": null,
-    "status": "title-unconfirmed"
+    "title": "felice",
+    "type": "playlist",
+    "songs": 4,
+    "scope": "titles only; lyrics excluded"
   },
   {
     "url": "https://suno.com/s/1XJDM8jH4XuS3kkX",
-    "associatedEvent": null,
-    "title": null,
-    "status": "association-and-title-unconfirmed"
+    "title": "nozomitaguchi - suno v6",
+    "type": "playlist",
+    "songs": 8
   },
   {
     "url": "https://suno.com/s/rzkQ2XsrdwSV2ct7",
-    "associatedEvent": null,
-    "title": null,
-    "status": "association-and-title-unconfirmed"
+    "title": "songs with guitar",
+    "type": "playlist",
+    "songs": 5
   }
 ]
