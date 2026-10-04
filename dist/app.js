@@ -20,11 +20,16 @@ async function playSelected(t){
  catch(error){if(selected?.id===t.id&&error.name!=='AbortError')setAudioStatus('再生を開始できませんでした。プレイヤーの再生ボタンでお試しください。');}
 }
 function setPanel(panel){if(panel==='lyrics'&&!selectedDetail?.lyricsByOwner)return;$('#notes-panel').hidden=panel!=='notes';$('#lyrics-panel').hidden=panel!=='lyrics';document.querySelectorAll('[data-panel]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.panel===panel)));}
-function trackUrl(id){const url=new URL(window.location.href);if(id)url.searchParams.set('song',id);else url.searchParams.delete('song');return url;}
+function currentTrackId(){
+ const url=new URL(window.location.href);
+ const match=url.pathname.match(/\/songs\/([^/]+)\/?$/);
+ return url.searchParams.get('song')||(match?decodeURIComponent(match[1]):null);
+}
+function trackUrl(id){const url=new URL(window.location.href);url.pathname=id?'/songtree/songs/'+encodeURIComponent(id)+'/':'/songtree/';url.searchParams.delete('song');url.hash='';return url;}
 function updateTrackUrl(id){const url=trackUrl(id);if(url.href!==window.location.href)window.history.pushState(null,'',url);}
 function closeDetail(){updateTrackUrl(null);$('#detail').close();document.title='Songtree';}
 function syncTrackUrl(){
- const id=new URL(window.location.href).searchParams.get('song');
+ const id=currentTrackId();
  const track=tracks.find(t=>t.id===id);
  if(track)openDetail(track,false);
  else{$('#detail').close();document.title='Songtree';}

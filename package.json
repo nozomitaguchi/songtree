@@ -1,1 +1,1 @@
-{"name":"songtree","version":"0.1.0","private":true,"type":"module","scripts":{"start":"node scripts/serve.mjs","check":"node --check dist/app.js && node scripts/check.mjs"}}
+{"name":"songtree","version":"0.1.0","private":true,"type":"module","scripts":{"start":"node scripts/serve.mjs","check":"node --check dist/app.js && node scripts/check.mjs","build":"node scripts/generate-pages.mjs"}}

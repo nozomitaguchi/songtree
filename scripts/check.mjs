@@ -11,3 +11,15 @@ assert.ok(history.filter(e=>e.dating==='inferred').every(e=>e.period.includes('�
 const html=await readFile('dist/index.html','utf8');
 for(const path of ['app.js','styles.css'])assert.ok(html.includes(path));
 console.log('PASS: syntax, unique IDs, lyric omission, inferred and unknown dates');
+
+// Verify the static pages consumed by crawlers, including nested asset resolution.
+for(const track of tracks){
+ const page=await readFile(`dist/songs/${track.id}/index.html`,'utf8');
+ assert.ok(page.includes(`<link rel="canonical" href="https://nozomitaguchi.github.io/songtree/songs/${track.id}/">`),'song canonical URL');
+ assert.ok(page.includes('<base href="/songtree/">'),'nested pages must resolve assets at the site root');
+ assert.ok(!page.includes('noindex'),'public songs must be indexable');
+ assert.ok(page.includes('property="og:title"'),'song share metadata must exist before JS');
+ assert.ok(page.includes(track.title),'static song title');
+ if(!track.lyricsByOwner)assert.ok(!page.includes('<h2>歌詞</h2>'),'non-owner lyrics must not appear in static fallback');
+}
+console.log('PASS: 17 static song URLs, canonical metadata, nested assets and lyric privacy');
