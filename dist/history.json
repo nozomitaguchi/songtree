@@ -57,7 +57,10 @@
       "creativeMindset": "物語調の曲を作り始めたのも、この頃だったように思う。",
       "reflectionNow": null
     },
-    "trackIds": [],
+    "trackIds": [
+      "moonbow",
+      "finder"
+    ],
     "formationNote": "最初のバンドの解散後、受験しないベーシストと新メンバーを募集して結成。",
     "members": [
       {
@@ -95,7 +98,11 @@
       "creativeMindset": null,
       "reflectionNow": null
     },
-    "trackIds": []
+    "trackIds": [
+      "yakeigoshi",
+      "matane",
+      "kousaten"
+    ]
   },
   {
     "id": "jazz",
@@ -126,7 +133,9 @@
       "reflectionNow": null,
       "reworkingNow": "今、Sunoで当時の曲を再制作している。ポップスに比べて変則的な転調が多く、意図した音の関係をうまく再現してくれないことがある。不協和音のように聴こえる箇所が、今のところ多い。"
     },
-    "trackIds": [],
+    "trackIds": [
+      "felice-suno-01"
+    ],
     "members": [
       {
         "name": "みきちゃん",
@@ -153,7 +162,12 @@
       "reflectionNow": null,
       "reworkingNow": "当時の曲を今の生成AIで再制作しようとすると、曲が長すぎて、最後までうまく生成できないものが多い。"
     },
-    "trackIds": [],
+    "trackIds": [
+      "machiawase",
+      "kochobai",
+      "dokomadega-boku",
+      "supira"
+    ],
     "members": [
       {
         "name": "リエコちゃん",
@@ -179,7 +193,10 @@
       "creativeMindset": null,
       "reflectionNow": null
     },
-    "trackIds": []
+    "trackIds": [
+      "monochrome",
+      "tengoku-ga-umareta-hi"
+    ]
   },
   {
     "id": "engineer",
@@ -194,6 +211,8 @@
       "creativeMindset": null,
       "reflectionNow": null
     },
-    "trackIds": []
+    "trackIds": [
+      "kataguruma"
+    ]
   }
 ]
