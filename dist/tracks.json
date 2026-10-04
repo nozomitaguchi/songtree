@@ -19,7 +19,11 @@
     "sourceUrl": "https://suno.com/song/9b60caf6-9498-4658-801e-512dab6dcfa3",
     "art": "blue",
     "sample": false,
-    "sourceTitle": "moonbow"
+    "sourceTitle": "moonbow",
+    "creatorCreditTags": [
+      "#Music",
+      "#Lyrics"
+    ]
   },
   {
     "id": "finder",
@@ -41,7 +45,11 @@
     "sourceUrl": "https://suno.com/song/a9a58c9a-65da-446f-928f-9980119b20db",
     "art": "dawn",
     "sample": false,
-    "sourceTitle": "finder"
+    "sourceTitle": "finder",
+    "creatorCreditTags": [
+      "#Music",
+      "#Lyrics"
+    ]
   },
   {
     "id": "yakeigoshi",
@@ -63,7 +71,11 @@
     "sourceUrl": "https://suno.com/song/c9e917d5-e20f-4fd0-892c-6b1f34f8ef3c",
     "art": "sunset",
     "sample": false,
-    "sourceTitle": "夜景越し"
+    "sourceTitle": "夜景越し",
+    "creatorCreditTags": [
+      "#Music",
+      "#Lyrics"
+    ]
   },
   {
     "id": "matane",
@@ -85,7 +97,11 @@
     "sourceUrl": "https://suno.com/song/c6212f81-dc5f-49b4-9c1f-a1d88d7143ed",
     "art": "blue",
     "sample": false,
-    "sourceTitle": "またね"
+    "sourceTitle": "またね",
+    "creatorCreditTags": [
+      "#Music",
+      "#Lyrics"
+    ]
   },
   {
     "id": "kousaten",
@@ -107,7 +123,11 @@
     "sourceUrl": "https://suno.com/song/66d9159e-b26f-444b-bf6f-2b7625954568",
     "art": "dawn",
     "sample": false,
-    "sourceTitle": "交差点"
+    "sourceTitle": "交差点",
+    "creatorCreditTags": [
+      "#Music",
+      "#Lyrics"
+    ]
   },
   {
     "id": "machiawase",
@@ -132,7 +152,8 @@
     "sourceTitle": "待ち合わせ",
     "lyricsRetrievalStatus": "retrieved-private-pending-credit",
     "displayYear": 2005,
-    "displayYearStatus": "placeholder"
+    "displayYearStatus": "placeholder",
+    "creatorCreditTags": []
   },
   {
     "id": "kochobai",
@@ -157,7 +178,8 @@
     "sourceTitle": "こちょばい",
     "lyricsRetrievalStatus": "retrieved-private-pending-credit",
     "displayYear": 2005,
-    "displayYearStatus": "placeholder"
+    "displayYearStatus": "placeholder",
+    "creatorCreditTags": []
   },
   {
     "id": "dokomadega-boku",
@@ -182,7 +204,8 @@
     "sourceTitle": "どこまでが僕？",
     "lyricsRetrievalStatus": "retrieved-private-pending-credit",
     "displayYear": 2006,
-    "displayYearStatus": "placeholder"
+    "displayYearStatus": "placeholder",
+    "creatorCreditTags": []
   },
   {
     "id": "supira",
@@ -207,7 +230,8 @@
     "sourceTitle": "スピラ",
     "lyricsRetrievalStatus": "retrieved-private-pending-credit",
     "displayYear": 2006,
-    "displayYearStatus": "placeholder"
+    "displayYearStatus": "placeholder",
+    "creatorCreditTags": []
   },
   {
     "id": "monochrome",
@@ -229,7 +253,11 @@
     "sourceUrl": "https://suno.com/song/e5a9facc-3f85-470a-8b72-fc5c77e9fe28",
     "art": "dawn",
     "sample": false,
-    "sourceTitle": "モノクロ"
+    "sourceTitle": "モノクロ",
+    "creatorCreditTags": [
+      "#Music",
+      "#Lyrics"
+    ]
   },
   {
     "id": "tengoku-ga-umareta-hi",
@@ -251,7 +279,11 @@
     "sourceUrl": "https://suno.com/song/b9701462-d36a-4898-8af7-e31718c035c9",
     "art": "sunset",
     "sample": false,
-    "sourceTitle": "天国が生まれた日"
+    "sourceTitle": "天国が生まれた日",
+    "creatorCreditTags": [
+      "#Music",
+      "#Lyrics"
+    ]
   },
   {
     "id": "kataguruma",
@@ -273,7 +305,11 @@
     "sourceUrl": "https://suno.com/song/231f6369-4507-49f6-b8e8-a7637c1e3ce9",
     "art": "blue",
     "sample": false,
-    "sourceTitle": "かたぐるま"
+    "sourceTitle": "かたぐるま",
+    "creatorCreditTags": [
+      "#Music",
+      "#Lyrics"
+    ]
   },
   {
     "id": "midflower",
@@ -295,7 +331,10 @@
     "sourceUrl": "https://suno.com/song/1a524be3-13a8-4d2f-a9e0-a9d952d692b6",
     "sample": false,
     "displayYear": 2005,
-    "displayYearStatus": "placeholder"
+    "displayYearStatus": "placeholder",
+    "creatorCreditTags": [
+      "#Music"
+    ]
   },
   {
     "id": "white-trip",
@@ -317,7 +356,10 @@
     "sourceUrl": "https://suno.com/song/81116290-211e-4994-922a-2b32dadb8f48",
     "sample": false,
     "displayYear": 2005,
-    "displayYearStatus": "placeholder"
+    "displayYearStatus": "placeholder",
+    "creatorCreditTags": [
+      "#Music"
+    ]
   },
   {
     "id": "two-of-us",
@@ -339,7 +381,10 @@
     "sourceUrl": "https://suno.com/song/2af7b086-740e-4cb6-9012-0fad8e17af5c",
     "sample": false,
     "displayYear": 2006,
-    "displayYearStatus": "placeholder"
+    "displayYearStatus": "placeholder",
+    "creatorCreditTags": [
+      "#Music"
+    ]
   },
   {
     "id": "sora",
@@ -361,7 +406,10 @@
     "sourceUrl": "https://suno.com/song/c4a9e7dc-55cd-4e9e-bd7f-2b071cdc2e8b",
     "sample": false,
     "displayYear": 2006,
-    "displayYearStatus": "placeholder"
+    "displayYearStatus": "placeholder",
+    "creatorCreditTags": [
+      "#Music"
+    ]
   },
   {
     "id": "rainbow",
@@ -381,6 +429,10 @@
     "notesNow": null,
     "audioSrc": null,
     "sourceUrl": "https://suno.com/song/107068a5-bab2-483b-8cb2-76d483d61f57",
-    "sample": false
+    "sample": false,
+    "creatorCreditTags": [
+      "#Music",
+      "#Lyrics"
+    ]
   }
 ]
