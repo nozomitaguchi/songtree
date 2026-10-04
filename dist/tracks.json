@@ -114,7 +114,7 @@
     "title": "待ち合わせ",
     "createdYear": null,
     "datePrecision": "period",
-    "displayPeriod": "patalp",
+    "displayPeriod": "2005年（仮） / patalp",
     "historyEventId": "patalp",
     "creationOrder": null,
     "audioVersionYear": null,
@@ -130,14 +130,16 @@
     "art": "blue",
     "sample": false,
     "sourceTitle": "待ち合わせ",
-    "lyricsRetrievalStatus": "retrieved-private-pending-credit"
+    "lyricsRetrievalStatus": "retrieved-private-pending-credit",
+    "displayYear": 2005,
+    "displayYearStatus": "placeholder"
   },
   {
     "id": "kochobai",
     "title": "こちょばい",
     "createdYear": null,
     "datePrecision": "period",
-    "displayPeriod": "patalp",
+    "displayPeriod": "2005年（仮） / patalp",
     "historyEventId": "patalp",
     "creationOrder": null,
     "audioVersionYear": null,
@@ -153,14 +155,16 @@
     "art": "dawn",
     "sample": false,
     "sourceTitle": "こちょばい",
-    "lyricsRetrievalStatus": "retrieved-private-pending-credit"
+    "lyricsRetrievalStatus": "retrieved-private-pending-credit",
+    "displayYear": 2005,
+    "displayYearStatus": "placeholder"
   },
   {
     "id": "dokomadega-boku",
     "title": "どこまでが僕",
     "createdYear": null,
     "datePrecision": "period",
-    "displayPeriod": "patalp",
+    "displayPeriod": "2006年（仮） / patalp",
     "historyEventId": "patalp",
     "creationOrder": null,
     "audioVersionYear": null,
@@ -176,14 +180,16 @@
     "art": "sunset",
     "sample": false,
     "sourceTitle": "どこまでが僕？",
-    "lyricsRetrievalStatus": "retrieved-private-pending-credit"
+    "lyricsRetrievalStatus": "retrieved-private-pending-credit",
+    "displayYear": 2006,
+    "displayYearStatus": "placeholder"
   },
   {
     "id": "supira",
     "title": "スピラ",
     "createdYear": null,
     "datePrecision": "period",
-    "displayPeriod": "patalp",
+    "displayPeriod": "2006年（仮） / patalp",
     "historyEventId": "patalp",
     "creationOrder": null,
     "audioVersionYear": null,
@@ -199,7 +205,9 @@
     "art": "blue",
     "sample": false,
     "sourceTitle": "スピラ",
-    "lyricsRetrievalStatus": "retrieved-private-pending-credit"
+    "lyricsRetrievalStatus": "retrieved-private-pending-credit",
+    "displayYear": 2006,
+    "displayYearStatus": "placeholder"
   },
   {
     "id": "monochrome",
@@ -272,7 +280,7 @@
     "title": "midflower",
     "createdYear": null,
     "datePrecision": "period",
-    "displayPeriod": "felice",
+    "displayPeriod": "2005年（仮） / felice",
     "historyEventId": "felice",
     "creationOrder": null,
     "audioVersionYear": null,
@@ -285,14 +293,16 @@
     "notesNow": null,
     "audioSrc": null,
     "sourceUrl": "https://suno.com/song/1a524be3-13a8-4d2f-a9e0-a9d952d692b6",
-    "sample": false
+    "sample": false,
+    "displayYear": 2005,
+    "displayYearStatus": "placeholder"
   },
   {
     "id": "white-trip",
     "title": "ホワイトトリップ",
     "createdYear": null,
     "datePrecision": "period",
-    "displayPeriod": "felice",
+    "displayPeriod": "2005年（仮） / felice",
     "historyEventId": "felice",
     "creationOrder": null,
     "audioVersionYear": null,
@@ -305,14 +315,16 @@
     "notesNow": null,
     "audioSrc": null,
     "sourceUrl": "https://suno.com/song/81116290-211e-4994-922a-2b32dadb8f48",
-    "sample": false
+    "sample": false,
+    "displayYear": 2005,
+    "displayYearStatus": "placeholder"
   },
   {
     "id": "two-of-us",
     "title": "two of us",
     "createdYear": null,
     "datePrecision": "period",
-    "displayPeriod": "felice",
+    "displayPeriod": "2006年（仮） / felice",
     "historyEventId": "felice",
     "creationOrder": null,
     "audioVersionYear": null,
@@ -325,14 +337,16 @@
     "notesNow": null,
     "audioSrc": null,
     "sourceUrl": "https://suno.com/song/2af7b086-740e-4cb6-9012-0fad8e17af5c",
-    "sample": false
+    "sample": false,
+    "displayYear": 2006,
+    "displayYearStatus": "placeholder"
   },
   {
     "id": "sora",
     "title": "空",
     "createdYear": null,
     "datePrecision": "period",
-    "displayPeriod": "felice",
+    "displayPeriod": "2006年（仮） / felice",
     "historyEventId": "felice",
     "creationOrder": null,
     "audioVersionYear": null,
@@ -345,7 +359,9 @@
     "notesNow": null,
     "audioSrc": null,
     "sourceUrl": "https://suno.com/song/c4a9e7dc-55cd-4e9e-bd7f-2b071cdc2e8b",
-    "sample": false
+    "sample": false,
+    "displayYear": 2006,
+    "displayYearStatus": "placeholder"
   },
   {
     "id": "rainbow",
