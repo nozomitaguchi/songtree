@@ -87,3 +87,5 @@ Live recheck passed: both controls contain no visible text and measure 44×44px;
 ## Dialog initial focus — 2026-10-05
 
 User's iPhone screenshot shows an unwanted focus ring on the auto-focused close button. Set autofocus on the song heading with tabindex=-1 and explicitly focus it after showModal, without scrolling. Suppress the outline only on this non-interactive heading; preserve interactive keyboard focus styles. npm run check passed. Live verification follows deployment; iPhone Safari itself is not available in the desktop browser.
+
+Live recheck passed in desktop Chrome: direct URL reload focused detail-title with outline:none and close button not focused; Shift+Tab moved to close-detail with :focus-visible and solid outline. Closing and opening again focused the heading. Screenshot reviewed: no ring on close at rest. GitHub Pages deploy succeeded. iPhone Safari behavior requires device confirmation; no blanket suppression of button focus was introduced.
