@@ -81,3 +81,5 @@ Live recheck passed: opening kataguruma changed URL and page title; copy button 
 ## Detail action icons — 2026-10-05
 
 User requested symbol-only copy and play controls and removal of the Suno link. Replaced text buttons with lightweight SVG play/copy icons and 44px targets. Copy success shows a check mark and announces status through aria-live; accessible names and hover titles remain. Removed Suno DOM link and its JS updates. npm run check passed. Browser verification follows deployment.
+
+Live recheck passed: both controls contain no visible text and measure 44×44px; accessible labels remain; Suno link count is zero. Copy reports success and changes to check symbol; play starts kataguruma (audio.paused=false) and closes modal. Reopened detail resets copy icon. Desktop screenshot reviewed: two minimal outlined circles, no layout regression. No separate mobile viewport check was available.
