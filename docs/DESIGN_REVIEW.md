@@ -105,3 +105,5 @@ Live visual recheck: public CSS resolves rock rgb(128,107,116), felice rgb(125,1
 ## Unit descriptions — 2026-10-05
 
 Added concise parenthetical descriptions to milestone labels: felice (jazz unit), patalp (acoustic unit), as specified by the owner. No changes to dates, songs, ordering or palette. npm run check passed. Live visual check follows deployment.
+
+Live recheck passed: both unit descriptions visible beside their 2005 milestones. Screenshot reviewed at the parallel branch origins; no wrapping or layout change at desktop width. Deploy succeeded. No separate mobile viewport check performed.
