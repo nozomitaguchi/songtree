@@ -237,3 +237,34 @@ main{padding-top:28px}
 #detail-tabs button[aria-pressed=true]{color:var(--accent);border-color:var(--accent)}
 #notes-panel p,#lyrics{font:300 15px/2.15 var(--sans);letter-spacing:.025em;white-space:pre-wrap;margin:0;overflow-wrap:anywhere}
 @media(max-width:640px){#detail{padding:42px 26px 30px;border-radius:12px;max-height:calc(100dvh - 32px)}#detail-title{font-size:25px}#notes-panel p,#lyrics{font-size:14px}}
+
+/* Larger type for the header and the music tree. */
+.site-header .identity img{width:56px;height:56px}
+.site-header .identity strong{font-size:19px}
+.site-header h1{font-size:25px;color:var(--ink)}
+.song-commit{min-height:64px;gap:16px}
+.song-commit .commit-title{font-size:23px;line-height:1.65}
+.song-commit .credit-tag{font-size:12px}
+.event-line .log-year{font-size:17px;min-width:56px}
+.event-line .event-label{font-size:15px;opacity:1}
+@media(max-width:640px){
+.site-header{column-gap:6px}
+.site-header .identity img{width:32px;height:32px}
+.site-header .identity strong{font-size:14px}
+.site-header h1{font-size:17px}
+.site-header .site-nav a{padding:4px}
+.song-commit{gap:10px}
+.song-commit .commit-title{font-size:20px}
+.song-commit .credit-tag{font-size:10px}
+.event-line .log-year{font-size:15px;min-width:44px}
+.event-line .event-label{font-size:13px}
+}
+@media(max-width:360px){
+.site-header .identity{gap:5px}
+.site-header .identity img{width:24px;height:24px}
+.site-header .identity strong{font-size:12px}
+.site-header h1{font-size:15px}
+.site-header .site-nav a{padding:3px}
+.song-commit .commit-title{font-size:19px}
+.song-commit .credit-tags{gap:4px}
+}
