@@ -55,7 +55,7 @@ function openDetail(t,updateUrl=true){
  $('#lyrics').textContent=hasLyrics?t.lyrics:'';
  setPanel(hasLyrics?'lyrics':'notes');
  $('#notes-panel').hidden=!notes||hasLyrics;
- if(!$('#detail').open)$('#detail').showModal();
+ if(!$('#detail').open){$('#detail').showModal();$('#detail-title').focus({preventScroll:true});}
 }
 $('#detail-play').addEventListener('click',()=>{const track=selectedDetail;selectTrack(track);closeDetail();if(track.audioSrc){audio.focus();void playSelected(track);}else $('#audio-file').focus();});
 $('#close-detail').addEventListener('click',closeDetail);

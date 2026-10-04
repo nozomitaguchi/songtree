@@ -329,3 +329,6 @@ main{padding-top:28px}
 .detail-icon[data-copied="true"] .copied-symbol{display:block}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 #share-url{width:100%;padding:10px;border:1px solid var(--line);border-radius:4px;margin-bottom:18px;background:var(--bg);color:var(--ink);font:13px/1.6 var(--sans)}
+
+/* The dialog opens on its heading; interactive keyboard focus remains visible. */
+#detail-title:focus{outline:none}
