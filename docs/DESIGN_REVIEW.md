@@ -71,3 +71,7 @@ Sunoの通常のMP3ダウンロードから全17曲を取得。曲IDごとのaud
 Problem: logo and title differed from portfolio, especially mobile. Live portfolio: header 88px, logo 48px, title 17px / weight 400. Changed Songtree to those dimensions and the same SNS spacing, removed byline to preserve one row. Tree typography unchanged. npm run check passed. Live browser comparison follows deployment.
 
 Live recheck: public portfolio and Songtree both measured header 88px × 1180px at viewport 1363px, logo 48px × 48px, title 17px / weight 400 with the same font stack. No horizontal overflow. Mobile rules match the portfolio with 48px logo and a single short title; no real mobile viewport check was available in this browser. No tree typography changes or regressions found.
+
+## Shareable track URLs — 2026-10-05
+
+Problem: a shared site link did not identify an open song. Added ?song=<stable track id>, History API navigation, direct-load restoration, and a compact copy-link button. Closing or starting playback returns to the base URL; Back and Forward restore the detail state. No automatic playback from links. Clipboard failure reveals a selectable URL. npm run check passed; live routing checks follow deployment.

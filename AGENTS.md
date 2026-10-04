@@ -65,3 +65,5 @@ Nodeの標準APIで維持できる範囲では依存を増やさない。npm run
 2026-10-05公開先：GitHub Pages。mainへのpushで.github/workflows/pages.ymlが検証後distだけを配信する。sourcesやdocs、.openaiはPagesに含めない。GitHubリポジトリ自体は本人指定のpublic。Sitesで公開範囲をpublicに戻さない。
 
 2026-10-05最新：ヘッダーをポートフォリオと同じ寸法に揃える。タイトルはSongtree。アイコン48px、タイトル17px・400、ヘッダー最小88px。スマホでも1段を維持。
+
+2026-10-05最新：各曲の詳細は?song=曲IDで共有可能にする。直接アクセス・再読み込み・戻る/進むで詳細を復元。開くだけでは自動再生しない。曲詳細に共有URLをコピーする操作を設置。
