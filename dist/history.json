@@ -16,11 +16,11 @@
   },
   {
     "id": "guitar",
-    "year": 1999,
-    "period": "中学2年生 · 1999年度（仮）",
+    "year": 1998,
+    "period": "1998",
     "title": "ギターを始める",
     "description": "音楽を聴く側から、自分で弾く側へ。",
-    "dating": "inferred",
+    "dating": "confirmed",
     "eraNotes": {
       "musicPlayed": null,
       "musicListenedTo": null,
@@ -120,6 +120,15 @@
     "trackIds": []
   },
   {
+    "id": "split",
+    "year": null,
+    "period": "開始年未確認",
+    "title": "felice / patalp",
+    "description": "feliceとpatalpは、約2年間、同時期に活動していた。二つのユニットの正確な開始時期は未確認。",
+    "dating": "unknown",
+    "trackIds": []
+  },
+  {
     "id": "felice",
     "year": null,
     "period": "ユニット活動 · 年未確認",
@@ -179,6 +188,24 @@
       }
     ],
     "lyricCreditsNote": "本人作詞とリエコちゃん作詞が半分ずつくらい。曲ごとに作詞者を確認し、本人作詞の曲だけ歌詞を掲載する。"
+  },
+  {
+    "id": "parallel",
+    "year": null,
+    "period": "~ 2 YEARS",
+    "title": "約2年間、並行して活動",
+    "description": "ジャズギタリストとしてのfeliceと、ポップスを根源とするpatalp。「2年くらいは同時期にやっていたはず」という記憶。曲の厳密な前後関係は、これから整理する。",
+    "dating": "unknown",
+    "trackIds": []
+  },
+  {
+    "id": "felice-end",
+    "year": null,
+    "period": "終了年未確認",
+    "title": "felice 活動終了",
+    "description": "みきちゃんの子どもが生まれ、活動がほとんどできなくなったことから、feliceは終了した。patalpがその後いつまで続いたかは未確認。",
+    "dating": "unknown",
+    "trackIds": []
   },
   {
     "id": "chiba",
