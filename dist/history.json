@@ -100,8 +100,7 @@
     },
     "trackIds": [
       "yakeigoshi",
-      "matane",
-      "kousaten"
+      "matane"
     ]
   },
   {
@@ -117,16 +116,10 @@
       "creativeMindset": null,
       "reflectionNow": null
     },
-    "trackIds": []
-  },
-  {
-    "id": "split",
-    "year": null,
-    "period": "開始年未確認",
-    "title": "felice / patalp",
-    "description": "feliceとpatalpは、約2年間、同時期に活動していた。二つのユニットの正確な開始時期は未確認。",
-    "dating": "unknown",
-    "trackIds": []
+    "trackIds": [
+      "rainbow",
+      "kousaten"
+    ]
   },
   {
     "id": "felice",
@@ -143,7 +136,10 @@
       "reworkingNow": "今、Sunoで当時の曲を再制作している。ポップスに比べて変則的な転調が多く、意図した音の関係をうまく再現してくれないことがある。不協和音のように聴こえる箇所が、今のところ多い。"
     },
     "trackIds": [
-      "felice-suno-01"
+      "midflower",
+      "white-trip",
+      "two-of-us",
+      "sora"
     ],
     "members": [
       {
@@ -155,7 +151,9 @@
         "role": "作曲・ギター"
       }
     ],
-    "lyricCreditsNote": "作詞はみきちゃんに全面的に任せていた。本人が作詞していない曲の歌詞は掲載しない。"
+    "lyricCreditsNote": "作詞はみきちゃんに全面的に任せていた。本人が作詞していない曲の歌詞は掲載しない。",
+    "concurrentWith": "patalp",
+    "approxConcurrentYears": 2
   },
   {
     "id": "patalp",
@@ -187,25 +185,9 @@
         "role": "作曲・作詞"
       }
     ],
-    "lyricCreditsNote": "本人作詞とリエコちゃん作詞が半分ずつくらい。曲ごとに作詞者を確認し、本人作詞の曲だけ歌詞を掲載する。"
-  },
-  {
-    "id": "parallel",
-    "year": null,
-    "period": "~ 2 YEARS",
-    "title": "約2年間、並行して活動",
-    "description": "ジャズギタリストとしてのfeliceと、ポップスを根源とするpatalp。「2年くらいは同時期にやっていたはず」という記憶。曲の厳密な前後関係は、これから整理する。",
-    "dating": "unknown",
-    "trackIds": []
-  },
-  {
-    "id": "felice-end",
-    "year": null,
-    "period": "終了年未確認",
-    "title": "felice 活動終了",
-    "description": "みきちゃんの子どもが生まれ、活動がほとんどできなくなったことから、feliceは終了した。patalpがその後いつまで続いたかは未確認。",
-    "dating": "unknown",
-    "trackIds": []
+    "lyricCreditsNote": "本人作詞とリエコちゃん作詞が半分ずつくらい。曲ごとに作詞者を確認し、本人作詞の曲だけ歌詞を掲載する。",
+    "concurrentWith": "felice",
+    "approxConcurrentYears": 2
   },
   {
     "id": "chiba",
