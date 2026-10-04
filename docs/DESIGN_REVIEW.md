@@ -61,3 +61,7 @@ Sunoの通常のMP3ダウンロードから全17曲を取得。曲IDごとのaud
 ## feliceの制作順 2026-10-05
 
 本人指定の制作順two of us・midflower・空・ホワイトトリップにtrackIdsを更新。画面は新しい順なのでホワイトトリップ・空・midflower・two of us。仮年は古い2曲を2005、後の2曲を2006に合わせたが確認年とは扱わない。17曲の重複・欠落と、3枝の線・クリック対象・feliceの表示順を仮DOMで検証。実画面は未検証。
+
+## GitHub Pages公開確認 2026-10-05
+
+本人指定で公開先をGitHub Pagesに変更し、リポジトリ名をnozomitaguchi/songtreeへ変更。Sitesはownerのみの非公開に戻した。Actionsのdist配信が成功し、公開URLで17曲の一覧・最新順・feliceの確定順を確認。かたぐるまの再生操作でaudioのreadyState=4、paused=false、currentTimeの進行、duration=235.56秒、errorなしを確認し、閉じる操作で再生を終了。PCの公開画面をdocs/screenshots/songtree-public.jpgに記録。スマホ画面の再確認は未実施。
