@@ -58,4 +58,4 @@ Production notesは本人のポートフォリオにある8曲の本文を転記
 
 ## GitHub Pages
 
-GitHubのSettings → PagesでSourceをGitHub Actionsに設定。mainへのpushまたはActionsの手動実行で検証し、distだけを公開する。公開URLはhttps://nozomitaguchi.github.io/music-timeline/。Sitesは非公開プレビューとして維持。
+GitHubのSettings → PagesでSourceをGitHub Actionsに設定。mainへのpushまたはActionsの手動実行で検証し、distだけを公開する。公開URLはhttps://nozomitaguchi.github.io/songtree/。Sitesは非公開プレビューとして維持。
