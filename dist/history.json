@@ -204,11 +204,11 @@
   },
   {
     "id": "chiba",
-    "year": null,
-    "period": "千葉に帰ってから · 年未確認",
+    "year": 2008,
+    "period": "2008年 · 23歳",
     "title": "暮らしの中で、音楽を続ける",
     "description": "千葉に帰ってきて、フリーターをしながら音楽をゆるく続ける。",
-    "dating": "unknown",
+    "dating": "derived-from-age",
     "eraNotes": {
       "musicPlayed": null,
       "musicListenedTo": null,
@@ -219,15 +219,17 @@
       "monochrome",
       "tengoku-ga-umareta-hi"
     ],
-    "shortLabel": "Back to Chiba"
+    "shortLabel": "Back to Chiba",
+    "age": 23,
+    "yearBasis": "本人申告の23歳と出生年1985年から導出。具体的な月日は未確認。"
   },
   {
     "id": "engineer",
-    "year": null,
-    "period": "その後 · 年未確認",
+    "year": 2012,
+    "period": "2012年 · 27歳",
     "title": "ITエンジニアとして就職する",
     "description": "ITエンジニアとして就職する。",
-    "dating": "unknown",
+    "dating": "derived-from-age",
     "eraNotes": {
       "musicPlayed": null,
       "musicListenedTo": null,
@@ -237,6 +239,8 @@
     "trackIds": [
       "kataguruma"
     ],
-    "shortLabel": "IT engineer"
+    "shortLabel": "IT engineer",
+    "age": 27,
+    "yearBasis": "本人申告の27歳と出生年1985年から導出。具体的な月日は未確認。"
   }
 ]
