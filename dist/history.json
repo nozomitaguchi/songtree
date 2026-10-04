@@ -125,7 +125,8 @@
       "rainbow",
       "matane"
     ],
-    "shortLabel": "Jazz"
+    "shortLabel": "Jazz",
+    "displayMilestone": false
   },
   {
     "id": "felice",
