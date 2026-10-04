@@ -34,10 +34,10 @@
     "year": 2001,
     "period": "高校1年生 · 2001年度（仮）",
     "title": "パンクバンドを組む",
-    "description": "最初のバンドは、パンクバンド。",
+    "description": "高校で最初に組んだ、パンクバンドのようなバンド。メンバーが受験するため解散した。",
     "dating": "inferred",
     "eraNotes": {
-      "musicPlayed": null,
+      "musicPlayed": "最初はパンクバンドのようなものを組んでいた。メンバーが受験に向かうことになってバンドがなくなり、受験しないベーシストと一緒に、ほかのメンバーを募って新しいバンドを組んだ。",
       "musicListenedTo": null,
       "creativeMindset": null,
       "reflectionNow": null
@@ -49,15 +49,38 @@
     "year": 2002,
     "period": "高校2年生 · 2002年度（仮）",
     "title": "女性ボーカルのロックバンドを組む",
-    "description": "女性ボーカルのロックバンドで活動する。",
+    "description": "前のバンドのベーシストと新しいメンバーを募り、年下の女性ボーカル、年上のギタリストとドラマーと一緒に活動した。",
     "dating": "inferred",
     "eraNotes": {
-      "musicPlayed": null,
+      "musicPlayed": "新しいバンドでは、ポップスというか、J-rock寄りの曲を作るようになった。",
       "musicListenedTo": null,
-      "creativeMindset": null,
+      "creativeMindset": "物語調の曲を作り始めたのも、この頃だったように思う。",
       "reflectionNow": null
     },
-    "trackIds": []
+    "trackIds": [],
+    "formationNote": "最初のバンドの解散後、受験しないベーシストと新メンバーを募集して結成。",
+    "members": [
+      {
+        "name": null,
+        "role": "女性ボーカル",
+        "ageRelation": "年下"
+      },
+      {
+        "name": null,
+        "role": "ギタリスト",
+        "ageRelation": "年上"
+      },
+      {
+        "name": null,
+        "role": "ドラマー",
+        "ageRelation": "年上"
+      },
+      {
+        "name": null,
+        "role": "ベーシスト",
+        "note": "前のバンドから一緒に活動。受験しないメンバー。"
+      }
+    ]
   },
   {
     "id": "school",
