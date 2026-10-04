@@ -99,3 +99,5 @@ Live recheck: dedicated kataguruma URL loads its dialog with canonical, per-song
 ## Muted branch palette — 2026-10-05
 
 User requested calmer, balanced branch colors. Before: felice ochre #976522 and patalp blue #506ca5 dominated the cream page. Changed felice to warm taupe #7d6f5e, patalp to slate #65717d, rock to dusty mauve #806b74; retained sage main. Graph now reads branch variables from CSS so lines, nodes, titles, labels, tags and detail accents stay consistent. Type sizes and layout unchanged. Build and checks passed; live visual review follows deployment.
+
+Live visual recheck: public CSS resolves rock rgb(128,107,116), felice rgb(125,111,94), patalp rgb(101,113,125). Inspected the upper tree and both concurrent branch origins on the cream background; reduced ochre/blue dominance while retaining branch distinction. Line and title colors share the CSS palette. Screenshot saved. Layout and type unchanged; no new regression observed. Deploy completed successfully. No separate mobile viewport check was available.
