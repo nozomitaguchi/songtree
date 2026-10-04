@@ -4,3 +4,5 @@
 
 /* Only the tree is visible at rest. */
 main{padding-top:60px;padding-bottom:60px}.commit-arrow{display:none}.event-info{width:5px;height:5px;border:0;background:var(--line);margin:0}.event-commit{gap:14px}.song-commit{border-bottom:0}.log-row.main .log-year{color:var(--muted)}@media(max-width:440px){main{padding-top:35px;padding-bottom:40px}}
+
+.event-line{display:flex;align-items:center;gap:22px;min-height:52px;padding:8px 0}.event-line .log-year{min-width:52px;font-size:13px}.event-label{font:11px/1.8 var(--mono);letter-spacing:.015em;color:var(--muted)}.felice .event-label{color:var(--felice)}.patalp .event-label{color:var(--patalp)}@media(max-width:440px){.event-line{gap:14px}.event-line .log-year{min-width:41px;font-size:12px}.event-label{font-size:10px}}
