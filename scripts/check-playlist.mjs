@@ -6,7 +6,7 @@ const nodes = new Map();
 function node(selector) {
   if (!nodes.has(selector)) nodes.set(selector, {
     dataset: {}, value: '', hidden: false, disabled: false, paused: true,
-    handlers: new Map(), playCalls: 0,
+    handlers: new Map(), playCalls: 0, style: {},
     addEventListener(name, fn) { this.handlers.set(name, fn); },
     pause() { this.paused = true; },
     load() {},
@@ -15,7 +15,10 @@ function node(selector) {
   });
   return nodes.get(selector);
 }
+const imageLoads=new Map();
+class MockImage { set src(url){this.url=url;imageLoads.set(url,this);} async decode(){} }
 const context = vm.createContext({
+  Image: MockImage,
   URL, console,
   document: { querySelector: node, querySelectorAll: () => [], body: { classList: { add() {}, remove() {} } } },
   window: { addEventListener() {} },
@@ -57,3 +60,28 @@ assert.equal(node('#audio').playCalls, plays);
 run("tracks.find(t=>t.id==='tengoku-ga-umareta-hi').audioSrc=null;renderedRows=makeRows();selectTrack(playableTracks()[0]);advanceTrack(1);");
 assert.equal(run('selected.id'), 'monochrome');
 console.log('PASS: playlist order, unit interleaving, previous/next, ended transition, boundaries and missing audio');
+
+// A slow earlier request must never replace the jacket of a newer selection.
+const jacket=node('#detail-jacket');
+run("setJacket('#detail-jacket',{title:'Slow',jacketDisplayUrl:'slow.webp'});");
+assert.equal(jacket.style.visibility,'hidden');
+assert.equal(jacket.src,undefined);
+run("setJacket('#detail-jacket',{title:'Fast',jacketDisplayUrl:'fast.webp'});");
+imageLoads.get('fast.webp').onload();
+await new Promise(resolve=>setImmediate(resolve));
+assert.equal(jacket.src,'fast.webp');
+assert.equal(jacket.style.visibility,'visible');
+imageLoads.get('slow.webp').onload();
+await new Promise(resolve=>setImmediate(resolve));
+assert.equal(jacket.src,'fast.webp');
+run("setJacket('#detail-jacket',{title:'Broken',jacketDisplayUrl:'broken.webp'});");
+assert.equal(jacket.src,undefined);
+assert.equal(jacket.style.visibility,'hidden');
+imageLoads.get('broken.webp').onerror();
+await new Promise(resolve=>setImmediate(resolve));
+assert.equal(jacket.hidden,true);
+run("setJacket('#detail-jacket',{title:'Cached',jacketDisplayUrl:'fast.webp'});");
+await new Promise(resolve=>setImmediate(resolve));
+assert.equal(jacket.src,'fast.webp');
+assert.equal(jacket.alt,'Cachedのジャケット');
+console.log('PASS: loading hides previous jacket, stale requests, failures and cached selection');

@@ -23,6 +23,9 @@ for(const track of tracks){
  assert.ok(page.includes('property="og:title"'),'song share metadata must exist before JS');
  assert.ok(page.includes(track.title),'static song title');
  assert.ok(track.jacketUrl, 'every song needs a jacket');
+ const display = await readFile(`dist/${track.jacketDisplayUrl}`);
+ assert.equal(display.subarray(8,12).toString(), 'WEBP');
+ assert.ok(display.length < 40000, 'display jacket must stay lightweight');
  const imageUrl = new URL(track.jacketUrl, 'https://nozomitaguchi.github.io/songtree/').href;
  assert.ok(page.includes(`property="og:image" content="${imageUrl}"`), 'song-specific Open Graph jacket');
  assert.ok(page.includes(`name="twitter:image" content="${imageUrl}"`), 'song-specific Twitter jacket');

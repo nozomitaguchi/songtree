@@ -31,6 +31,7 @@ function render(track) {
   };
   const metadata = `<!-- SEO START -->
 <base href="/songtree/">
+${track?.jacketDisplayUrl ? `<link rel="preload" as="image" href="${escape(track.jacketDisplayUrl)}">` : ''}
 <title>${escape(title)}</title>
 <meta name="description" content="${escape(summary)}">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -61,7 +62,7 @@ function render(track) {
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', ...entity }).replaceAll('<', '\\u003c')}</script>
 <!-- SEO END -->`;
   const fallback = track
-    ? `<h1>${escape(track.title)}</h1>${track.jacketUrl ? `<img src="${escape(track.jacketUrl)}" alt="${escape(imageAlt)}" width="240" height="240">` : ''}<p>${escape(summary)}</p>${track.audioSrc ? `<audio controls src="${escape(track.audioSrc)}"></audio>` : ''}${track.lyricsByOwner && track.lyrics ? `<h2>歌詞</h2><pre>${escape(track.lyrics)}</pre>` : ''}${track.notesThen || track.notesNow ? `<h2>Production notes</h2><p>${escape([track.notesThen, track.notesNow].filter(Boolean).join('\n\n'))}</p>` : ''}<a href="${site}">Songtree</a>`
+    ? `<h1>${escape(track.title)}</h1>${track.jacketUrl ? `<img src="${escape(track.jacketDisplayUrl || track.jacketUrl)}" alt="${escape(imageAlt)}" width="240" height="240">` : ''}<p>${escape(summary)}</p>${track.audioSrc ? `<audio controls src="${escape(track.audioSrc)}"></audio>` : ''}${track.lyricsByOwner && track.lyrics ? `<h2>歌詞</h2><pre>${escape(track.lyrics)}</pre>` : ''}${track.notesThen || track.notesNow ? `<h2>Production notes</h2><p>${escape([track.notesThen, track.notesNow].filter(Boolean).join('\n\n'))}</p>` : ''}<a href="${site}">Songtree</a>`
     : `<h1>Songtree</h1><p>${escape(description)}</p><ul>${tracks.map(t => `<li><a href="${trackUrl(t)}">${escape(t.title)}</a></li>`).join('')}</ul>`;
   return template.replace('<head>', `<head>${metadata}`).replace('</body>', `<noscript data-seo><main>${fallback}</main></noscript></body>`);
 }

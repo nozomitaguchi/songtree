@@ -26,7 +26,8 @@
     ],
     "jacketUrl": "jackets/moonbow.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/moonbow-display.webp"
   },
   {
     "id": "finder",
@@ -55,7 +56,8 @@
     ],
     "jacketUrl": "jackets/finder.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/finder-display.webp"
   },
   {
     "id": "yakeigoshi",
@@ -84,7 +86,8 @@
     ],
     "jacketUrl": "jackets/yakeigoshi.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/yakeigoshi-display.webp"
   },
   {
     "id": "matane",
@@ -115,7 +118,8 @@
     "notesSourceSha": "b29e6032595b4d118a78adc6e27e24903ec1d55e",
     "jacketUrl": "https://nozomitaguchi.github.io/assets/music-matane-jacket.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/matane-display.webp"
   },
   {
     "id": "kousaten",
@@ -144,7 +148,8 @@
     ],
     "jacketUrl": "jackets/kousaten.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/kousaten-display.webp"
   },
   {
     "id": "machiawase",
@@ -178,7 +183,8 @@
     "notesSourceSha": "fb3b604a8cd938668ecc3d1db627a157ea7b44c1",
     "jacketUrl": "https://nozomitaguchi.github.io/assets/music-machiawase-jacket.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/machiawase-display.webp"
   },
   {
     "id": "kochobai",
@@ -212,7 +218,8 @@
     "notesSourceSha": "c4c34becf773970339a3d5236910af8018e3b816",
     "jacketUrl": "https://nozomitaguchi.github.io/assets/music-kochobai-jacket.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/kochobai-display.webp"
   },
   {
     "id": "dokomadega-boku",
@@ -246,7 +253,8 @@
     "notesSourceSha": "dcbe34508052632d3c862714c7a88dd0acd7d577",
     "jacketUrl": "https://nozomitaguchi.github.io/assets/music-dokomade-ga-boku-jacket.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/dokomadega-boku-display.webp"
   },
   {
     "id": "supira",
@@ -280,7 +288,8 @@
     "notesSourceSha": "693fda3b250182087f1e4e92c9c06919c2b0cdb0",
     "jacketUrl": "https://nozomitaguchi.github.io/assets/music-spira-jacket.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/supira-display.webp"
   },
   {
     "id": "monochrome",
@@ -311,7 +320,8 @@
     "notesSourceSha": "0690bf85ee5faaa47cda4491be62381171c2845a",
     "jacketUrl": "https://nozomitaguchi.github.io/assets/music-monochrome-jacket.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/monochrome-display.webp"
   },
   {
     "id": "tengoku-ga-umareta-hi",
@@ -342,7 +352,8 @@
     "notesSourceSha": "af0d94285cd8ed12f9b4bcac6ac763999e79529f",
     "jacketUrl": "https://nozomitaguchi.github.io/assets/music-tengoku-ga-umareta-hi-jacket.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/tengoku-ga-umareta-hi-display.webp"
   },
   {
     "id": "kataguruma",
@@ -373,7 +384,8 @@
     "notesSourceSha": "39e42a1febd9912aeaca7f9ed1b1bb0c2f65af6d",
     "jacketUrl": "https://nozomitaguchi.github.io/assets/music-kataguruma-jacket.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/kataguruma-display.webp"
   },
   {
     "id": "midflower",
@@ -401,7 +413,8 @@
     ],
     "jacketUrl": "jackets/midflower.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/midflower-display.webp"
   },
   {
     "id": "white-trip",
@@ -429,7 +442,8 @@
     ],
     "jacketUrl": "jackets/white-trip.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/white-trip-display.webp"
   },
   {
     "id": "two-of-us",
@@ -457,7 +471,8 @@
     ],
     "jacketUrl": "jackets/two-of-us.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/two-of-us-display.webp"
   },
   {
     "id": "sora",
@@ -485,7 +500,8 @@
     ],
     "jacketUrl": "jackets/sora.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/sora-display.webp"
   },
   {
     "id": "rainbow",
@@ -512,6 +528,7 @@
     ],
     "jacketUrl": "jackets/rainbow.png",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/rainbow-display.webp"
   }
 ]
