@@ -14,11 +14,25 @@ function selectTrack(t){
  $('#playing-title').textContent=t.title;
  $('#player').hidden=false;
  document.body.classList.add('has-player');
+ updatePlaylistControls();
 }
 async function playSelected(t){
  try{await audio.play();if(selected?.id===t.id)setAudioStatus('');}
  catch(error){if(selected?.id===t.id&&error.name!=='AbortError')setAudioStatus('再生を開始できませんでした。プレイヤーの再生ボタンでお試しください。');}
 }
+function playableTracks(){return renderedRows.filter(row=>row.kind==='song'&&row.track.audioSrc).map(row=>row.track);}
+function adjacentTrack(offset){const list=playableTracks();const index=list.findIndex(track=>track.id===selected?.id);return index<0?null:list[index+offset]||null;}
+function updatePlaylistControls(){
+ const previous=adjacentTrack(-1),next=adjacentTrack(1);
+ $('#previous-track').disabled=!previous;
+ $('#next-track').disabled=!next;
+ $('#previous-track').title=previous?'前の曲：'+previous.title:'前の曲';
+ $('#next-track').title=next?'次の曲：'+next.title:'次の曲';
+}
+function advanceTrack(offset){const track=adjacentTrack(offset);if(!track)return;selectTrack(track);void playSelected(track);}
+$('#previous-track').addEventListener('click',()=>advanceTrack(-1));
+$('#next-track').addEventListener('click',()=>advanceTrack(1));
+audio.addEventListener('ended',()=>{if(!localAudioUrl)advanceTrack(1);});
 function setPanel(panel){if(panel==='lyrics'&&!selectedDetail?.lyricsByOwner)return;$('#notes-panel').hidden=panel!=='notes';$('#lyrics-panel').hidden=panel!=='lyrics';document.querySelectorAll('[data-panel]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.panel===panel)));}
 function currentTrackId(){
  const url=new URL(window.location.href);

@@ -1,0 +1,59 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import vm from 'node:vm';
+
+const nodes = new Map();
+function node(selector) {
+  if (!nodes.has(selector)) nodes.set(selector, {
+    dataset: {}, value: '', hidden: false, disabled: false, paused: true,
+    handlers: new Map(), playCalls: 0,
+    addEventListener(name, fn) { this.handlers.set(name, fn); },
+    pause() { this.paused = true; },
+    load() {},
+    removeAttribute(name) { delete this[name]; },
+    async play() { this.paused = false; this.playCalls += 1; },
+  });
+  return nodes.get(selector);
+}
+const context = vm.createContext({
+  URL, console,
+  document: { querySelector: node, querySelectorAll: () => [], body: { classList: { add() {}, remove() {} } } },
+  window: { addEventListener() {} },
+  ResizeObserver: class { observe() {} },
+  fixtureTracks: JSON.parse(await readFile('dist/tracks.json', 'utf8')),
+  fixtureEvents: JSON.parse(await readFile('dist/history.json', 'utf8')),
+});
+const source = (await readFile('dist/app.js', 'utf8')).replace(/init\(\);\s*$/, '');
+vm.runInContext(source, context);
+vm.runInContext('tracks=fixtureTracks;events=fixtureEvents;renderedRows=makeRows();', context);
+const run = code => vm.runInContext(code, context);
+assert.equal(run('playableTracks().length'), 17);
+assert.equal(run('playableTracks()[0].id'), 'kataguruma');
+assert.equal(run('playableTracks().at(-1).id'), 'moonbow');
+
+run('selectTrack(playableTracks()[0]);');
+assert.equal(node('#previous-track').disabled, true);
+assert.equal(node('#next-track').disabled, false);
+run('advanceTrack(1);');
+assert.equal(run('selected.id'), 'tengoku-ga-umareta-hi');
+assert.equal(node('#audio').paused, false);
+assert.equal(node('#playing-title').textContent, '天国が生まれた日');
+run('advanceTrack(-1);');
+assert.equal(run('selected.id'), 'kataguruma');
+
+// Interleaved units must follow the visible tree, rather than JSON order or branch.
+run("selectTrack(tracks.find(t=>t.id==='white-trip'));");
+node('#audio').handlers.get('ended')();
+assert.equal(run('selected.id'), 'dokomadega-boku');
+assert.equal(node('#audio').paused, false);
+
+// The final track stops, and missing registered audio is skipped.
+run('selectTrack(playableTracks().at(-1));');
+const plays = node('#audio').playCalls;
+node('#audio').handlers.get('ended')();
+assert.equal(run('selected.id'), 'moonbow');
+assert.equal(node('#next-track').disabled, true);
+assert.equal(node('#audio').playCalls, plays);
+run("tracks.find(t=>t.id==='tengoku-ga-umareta-hi').audioSrc=null;renderedRows=makeRows();selectTrack(playableTracks()[0]);advanceTrack(1);");
+assert.equal(run('selected.id'), 'monochrome');
+console.log('PASS: playlist order, unit interleaving, previous/next, ended transition, boundaries and missing audio');

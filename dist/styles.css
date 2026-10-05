@@ -332,3 +332,15 @@ main{padding-top:28px}
 
 /* The dialog opens on its heading; interactive keyboard focus remains visible. */
 #detail-title:focus{outline:none}
+
+/* Timeline playlist controls use the same compact player on desktop and mobile. */
+.player-transport{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:4px;min-width:0}
+.player .player-transport audio{grid-column:2;grid-row:1;min-width:0}
+.transport-button{width:44px;height:44px;padding:12px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%}
+.transport-button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.transport-button:hover:not(:disabled){background:rgba(112,100,80,.07)}
+.transport-button:disabled{opacity:.28;cursor:default}
+#previous-track{grid-column:1;grid-row:1}
+#next-track{grid-column:3;grid-row:1}
+@media(max-width:700px){.player-transport{grid-row:2;grid-column:1/-1}}
+@media(min-width:701px){.player[data-audio-mode="registered"]{grid-template-columns:minmax(0,1fr) minmax(300px,1.5fr) 44px}}

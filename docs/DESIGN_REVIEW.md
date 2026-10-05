@@ -107,3 +107,7 @@ Live visual recheck: public CSS resolves rock rgb(128,107,116), felice rgb(125,1
 Added concise parenthetical descriptions to milestone labels: felice (jazz unit), patalp (acoustic unit), as specified by the owner. No changes to dates, songs, ordering or palette. npm run check passed. Live visual check follows deployment.
 
 Live recheck passed: both unit descriptions visible beside their 2005 milestones. Screenshot reviewed at the parallel branch origins; no wrapping or layout change at desktop width. Deploy succeeded. No separate mobile viewport check performed.
+
+## Timeline playlist — 2026-10-05
+
+User wanted to listen without reopening each song. Added previous/next icon controls around native audio. Playlist follows visible latest-first timeline rows, including interleaved felice/patalp songs. Audio ended advances automatically; final track stops, boundaries disable controls, missing registered audio is skipped, local uploaded audio does not auto-advance. New audio replaces the single existing audio source. Mobile transport is a separate full-width player row. Build/check passed, including state/event tests for order, boundaries, previous/next, ended and skipped audio. Live browser playback and visual checks follow deployment.
