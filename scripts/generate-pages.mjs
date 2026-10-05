@@ -16,9 +16,13 @@ const creator = { '@type': 'Person', name: 'nozomitaguchi', url: 'https://nozomi
 function render(track) {
   const url = track ? trackUrl(track) : site;
   const title = track ? `${track.title} | Songtree` : 'Songtree | nozomitaguchiの曲の年表';
+  const image = track?.jacketUrl ? new URL(track.jacketUrl, site).href : cover;
+  const imageWidth = track?.jacketWidth || 1672;
+  const imageHeight = track?.jacketHeight || 941;
+  const imageAlt = track?.jacketUrl ? `${track.title}のジャケット` : 'iPadに表示されたSongtreeとギター';
   const summary = track ? `${track.title} — nozomitaguchiの曲。音源${track.lyricsByOwner ? '・歌詞' : ''}${track.notesThen || track.notesNow ? '・Production notes' : ''}をSongtreeで。` : description;
   const entity = track ? {
-    '@type': 'MusicComposition', name: track.title, url, composer: creator,
+    '@type': 'MusicComposition', name: track.title, url, image, composer: creator,
     ...(track.lyricsByOwner ? { lyricist: creator } : {}),
     ...(track.audioSrc ? { recordedAs: { '@type': 'MusicRecording', name: track.title, associatedMedia: { '@type': 'AudioObject', contentUrl: new URL(track.audioSrc, site).href, encodingFormat: 'audio/mpeg' } } } : {}),
   } : {
@@ -43,21 +47,21 @@ function render(track) {
 <meta property="og:title" content="${escape(title)}">
 <meta property="og:description" content="${escape(summary)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="${cover}">
+<meta property="og:image" content="${image}">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1672">
-<meta property="og:image:height" content="941">
-<meta property="og:image:alt" content="iPadに表示されたSongtreeとギター">
+<meta property="og:image:width" content="${imageWidth}">
+<meta property="og:image:height" content="${imageHeight}">
+<meta property="og:image:alt" content="${escape(imageAlt)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@nozomitaguchi">
 <meta name="twitter:title" content="${escape(title)}">
 <meta name="twitter:description" content="${escape(summary)}">
-<meta name="twitter:image" content="${cover}">
-<meta name="twitter:image:alt" content="iPadに表示されたSongtreeとギター">
+<meta name="twitter:image" content="${image}">
+<meta name="twitter:image:alt" content="${escape(imageAlt)}">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', ...entity }).replaceAll('<', '\\u003c')}</script>
 <!-- SEO END -->`;
   const fallback = track
-    ? `<h1>${escape(track.title)}</h1><p>${escape(summary)}</p>${track.audioSrc ? `<audio controls src="${escape(track.audioSrc)}"></audio>` : ''}${track.lyricsByOwner && track.lyrics ? `<h2>歌詞</h2><pre>${escape(track.lyrics)}</pre>` : ''}${track.notesThen || track.notesNow ? `<h2>Production notes</h2><p>${escape([track.notesThen, track.notesNow].filter(Boolean).join('\n\n'))}</p>` : ''}<a href="${site}">Songtree</a>`
+    ? `<h1>${escape(track.title)}</h1>${track.jacketUrl ? `<img src="${escape(track.jacketUrl)}" alt="${escape(imageAlt)}" width="240" height="240">` : ''}<p>${escape(summary)}</p>${track.audioSrc ? `<audio controls src="${escape(track.audioSrc)}"></audio>` : ''}${track.lyricsByOwner && track.lyrics ? `<h2>歌詞</h2><pre>${escape(track.lyrics)}</pre>` : ''}${track.notesThen || track.notesNow ? `<h2>Production notes</h2><p>${escape([track.notesThen, track.notesNow].filter(Boolean).join('\n\n'))}</p>` : ''}<a href="${site}">Songtree</a>`
     : `<h1>Songtree</h1><p>${escape(description)}</p><ul>${tracks.map(t => `<li><a href="${trackUrl(t)}">${escape(t.title)}</a></li>`).join('')}</ul>`;
   return template.replace('<head>', `<head>${metadata}`).replace('</body>', `<noscript data-seo><main>${fallback}</main></noscript></body>`);
 }

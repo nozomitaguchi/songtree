@@ -22,6 +22,16 @@ for(const track of tracks){
  assert.ok(!page.includes('noindex'),'public songs must be indexable');
  assert.ok(page.includes('property="og:title"'),'song share metadata must exist before JS');
  assert.ok(page.includes(track.title),'static song title');
+ assert.ok(track.jacketUrl, 'every song needs a jacket');
+ const imageUrl = new URL(track.jacketUrl, 'https://nozomitaguchi.github.io/songtree/').href;
+ assert.ok(page.includes(`property="og:image" content="${imageUrl}"`), 'song-specific Open Graph jacket');
+ assert.ok(page.includes(`name="twitter:image" content="${imageUrl}"`), 'song-specific Twitter jacket');
+ if (!track.jacketUrl.startsWith('https://')) {
+  const bytes = await readFile(`dist/${track.jacketUrl}`);
+  assert.equal(bytes.subarray(1,4).toString(), 'PNG', 'local jacket must be PNG');
+  assert.equal(bytes.readUInt32BE(16), track.jacketWidth, 'jacket width');
+  assert.equal(bytes.readUInt32BE(20), track.jacketHeight, 'jacket height');
+ }
  if(!track.lyricsByOwner)assert.ok(!page.includes('<h2>歌詞</h2>'),'non-owner lyrics must not appear in static fallback');
 }
 console.log('PASS: 17 static song URLs, canonical metadata, nested assets and lyric privacy');

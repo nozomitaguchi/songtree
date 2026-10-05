@@ -59,3 +59,7 @@ Production notesは本人のポートフォリオにある8曲の本文を転記
 ## GitHub Pages
 
 GitHubのSettings → PagesでSourceをGitHub Actionsに設定。mainへのpushまたはActionsの手動実行で検証し、distだけを公開する。公開URLはhttps://nozomitaguchi.github.io/songtree/。Sitesは非公開プレビューとして維持。
+
+## ジャケット
+
+全17曲の詳細・再生中プレイヤー・曲別共有カードにジャケットを設定。既存8曲はポートフォリオの画像を再利用し、未制作9曲は同じ淡い水彩と紙質感で追加。`sources/jackets/prompts.json`に制作意図、`originals.json`に既存画像の出典を記録。feliceはタイトルのみを起点とし、歌詞は非掲載を維持。

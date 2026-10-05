@@ -1,0 +1,63 @@
+{
+  "styleReferences": [
+    "https://nozomitaguchi.github.io/assets/music-matane-jacket.png",
+    "https://nozomitaguchi.github.io/assets/music-spira-jacket.png"
+  ],
+  "constraints": "Square standalone watercolor on ivory paper, subdued colors, no text, no logo, no border or mockup. References describe style only.",
+  "images": [
+    {
+      "id": "moonbow",
+      "scene": "A solitary young adult traveler seen small from behind on a path through a quiet forest at night, a great old tree beside the path, a luminous moon and a very faint pale lunar rainbow beyond the trees. Spacious misty moonlit sky, silver ivory, slate blue and muted sage. Bittersweet longing and a continuing journey; no fantasy creatures.",
+      "asset": "dist/jackets/moonbow.png",
+      "mode": "new watercolor illustration using two existing jackets as style references"
+    },
+    {
+      "id": "finder",
+      "scene": "An ordinary Japanese town at sunset. A small young adult figure holds an old film camera near a riverside path, seen from behind or in profile. A distant couple strolls together, subtle warm glowing sky and breeze; affectionate memories and quiet loneliness. Muted coral, warm ivory, gray lavender. Camera clearly suggested but no giant close-up and no text.",
+      "asset": "dist/jackets/finder.png",
+      "mode": "new watercolor illustration using two existing jackets as style references"
+    },
+    {
+      "id": "yakeigoshi",
+      "scene": "Inside a nearly empty commuter train after an evening outing, two young adult lovers sit close, one resting their head on the other's shoulder. Wide train window reflects them subtly, passing distant city lights outside. Restrained amber lights and blue-gray night, tender calm intimacy, interior wide composition, soft painterly reflections, never photorealistic.",
+      "asset": "dist/jackets/yakeigoshi.png",
+      "mode": "new watercolor illustration using two existing jackets as style references"
+    },
+    {
+      "id": "kousaten",
+      "scene": "Two young adults pause at a small Japanese street intersection at dusk before parting; one holds a small flower bouquet. Natural distance between figures, quiet longing, a delicate crescent moon above low houses, a few soft street lights, wide spacious pink-gray sky. Warm ivory and muted mauve, no dramatic embrace, no readable street signs.",
+      "asset": "dist/jackets/kousaten.png",
+      "mode": "new watercolor illustration using two existing jackets as style references"
+    },
+    {
+      "id": "rainbow",
+      "scene": "Two young adults stand on a quiet riverside path after an unexpected sun shower, looking together at a faint rainbow in a warm sunset sky. Damp path reflects a little light, small figures and abundant airy sky. Gentle delight in an unplanned moment, warm pale gold, dusty coral, sage and blue-gray. Natural subtle rainbow rather than saturated stripes.",
+      "asset": "dist/jackets/rainbow.png",
+      "mode": "new watercolor illustration using two existing jackets as style references"
+    },
+    {
+      "id": "midflower",
+      "scene": "A single modest flower just opening in a small translucent glass vase on a quiet windowsill, soft afternoon light spreading onto a plaster wall, beyond the window a blurred garden. Airy intimate watercolor still life, dusty rose petals, subdued sage leaves, warm ivory and gray shadows. Jazz ballad atmosphere. No claim about song narrative, use a visual interpretation of the title.",
+      "asset": "dist/jackets/midflower.png",
+      "mode": "new watercolor illustration using two existing jackets as style references"
+    },
+    {
+      "id": "white-trip",
+      "scene": "A quiet pale path across a misty winter landscape, one small distant traveler walking towards soft light, almost white clouds and snow melting into warm ivory paper, delicate grasses and slate-gray tree silhouettes. Airy, dreamy and restrained, no harsh dark masses, no dramatic storm, no text. A visual interpretation of the title.",
+      "asset": "dist/jackets/white-trip.png",
+      "mode": "new watercolor illustration using two existing jackets as style references"
+    },
+    {
+      "id": "two-of-us",
+      "scene": "Two empty simple wooden chairs beside a large window, a small round table between them with two cups. Low soft evening light, distant hazy town and pale sky outside. Quiet presence of two people without depicting them, graceful contemplative jazz atmosphere, warm cream, gray lavender, muted ochre and sage. Watercolor still life, no typography.",
+      "asset": "dist/jackets/two-of-us.png",
+      "mode": "new watercolor illustration using two existing jackets as style references"
+    },
+    {
+      "id": "sora",
+      "scene": "An immense soft sky above a narrow line of distant town rooftops and trees, irregular watercolor cloud shapes, pale late-afternoon light breaking gently through gray-blue clouds. Airy contemplative jazz atmosphere, spacious composition with no figures, slate blue, ivory and subtle pale gold. The sky is the subject; no text.",
+      "asset": "dist/jackets/sora.png",
+      "mode": "new watercolor illustration using two existing jackets as style references"
+    }
+  ]
+}

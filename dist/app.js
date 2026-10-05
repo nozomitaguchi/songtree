@@ -3,6 +3,8 @@ const $=s=>document.querySelector(s);
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
 let tracks=[],events=[],selected=null,selectedDetail=null,localAudioUrl=null;
 const audio=$('#audio');
+function setJacket(selector,t){const image=$(selector);image.hidden=!t.jacketUrl;if(t.jacketUrl){image.src=t.jacketUrl;image.alt=t.title+'のジャケット';}else image.removeAttribute('src');}
+
 function releaseAudio(){audio.pause();audio.removeAttribute('src');audio.load();if(localAudioUrl){URL.revokeObjectURL(localAudioUrl);localAudioUrl=null;}$('#audio-file').value='';}
 function setAudioStatus(message){const status=$('#audio-status');status.textContent=message;status.hidden=!message;}
 function selectTrack(t){
@@ -12,6 +14,7 @@ function selectTrack(t){
  $('.audio-upload').hidden=registered;
  $('.upload-note').hidden=registered;
  $('#playing-title').textContent=t.title;
+ setJacket('#playing-jacket',t);
  $('#player').hidden=false;
  document.body.classList.add('has-player');
  updatePlaylistControls();
@@ -63,6 +66,7 @@ function openDetail(t,updateUrl=true){
  const notes=[t.notesThen,t.notesNow].filter(Boolean).join('\n\n');
  $('#detail').dataset.branch=branchFor(events.find(e=>e.id===t.historyEventId)||{});
  $('#detail-title').textContent=t.title;
+ setJacket('#detail-jacket',t);
  $('#credits').replaceChildren();
  for(const tag of t.creatorCreditTags||[])$('#credits').append(el('span',tag,'credit-tag'));
  $('#notes-then').textContent=notes;

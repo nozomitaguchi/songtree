@@ -113,3 +113,7 @@ Live recheck passed: both unit descriptions visible beside their 2005 milestones
 User wanted to listen without reopening each song. Added previous/next icon controls around native audio. Playlist follows visible latest-first timeline rows, including interleaved felice/patalp songs. Audio ended advances automatically; final track stops, boundaries disable controls, missing registered audio is skipped, local uploaded audio does not auto-advance. New audio replaces the single existing audio source. Mobile transport is a separate full-width player row. Build/check passed, including state/event tests for order, boundaries, previous/next, ended and skipped audio. Live browser playback and visual checks follow deployment.
 
 Live recheck passed: first track disables previous; next starts 天国が生まれた日, previous returns to かたぐるま. Seeking near its end through native audio controls caused automatic transition to 天国が生まれた日 with audio.paused=false. Registered source paths remain correct and no horizontal overflow at desktop. Screenshot reviewed: concise previous/audio/next transport on the existing fixed player. Paused after verification. Mobile CSS uses one full-width transport row; no iPhone runtime check was available. Deploy succeeded.
+
+## ジャケットの引き継ぎ・統合 2026-10-05
+
+前スレッドの未反映ファイルから追加9曲の画像と実装を回収。既存8曲は原画像を再利用し、全17曲の詳細、再生中プレイヤー、静的OG/Twitter画像へ設定。初期年表は変更しない。9枚の画像を目視し、紙質感・水彩・文字なしの共通画風と曲ごとの対応を確認。npm run checkで曲別メタデータ、ローカルPNGの実寸、歌詞非掲載、プレイリストの順序・自動送りを検証。実画面検証は公開後に実施。
