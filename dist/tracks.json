@@ -589,7 +589,8 @@
     "jacketUrl": "jackets/taisetsu-na-hito-e.png",
     "jacketDisplayUrl": "jackets/taisetsu-na-hito-e-display.webp",
     "jacketWidth": 1254,
-    "jacketHeight": 1254
+    "jacketHeight": 1254,
+    "displayAfterTrackId": "machiawase"
   },
   {
     "id": "ai-no-uta",

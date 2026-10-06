@@ -50,7 +50,7 @@ node('#audio').handlers.get('ended')();
 assert.equal(run('selected.id'), 'kochobai');
 assert.equal(node('#audio').paused, false);
 
-assert.deepEqual(Array.from(run("playableTracks().filter(t=>t.historyEventId==='patalp').map(t=>t.id)")), ['supira','hanabi','ai-no-uta','dokomadega-boku','kochobai','machiawase','taisetsu-na-hito-e']);
+assert.deepEqual(Array.from(run("playableTracks().filter(t=>t.historyEventId==='patalp').map(t=>t.id)")), ['supira','dokomadega-boku','hanabi','ai-no-uta','kochobai','machiawase','taisetsu-na-hito-e']);
 
 // The final track stops, and missing registered audio is skipped.
 run('selectTrack(playableTracks().at(-1));');
@@ -87,3 +87,9 @@ await new Promise(resolve=>setImmediate(resolve));
 assert.equal(jacket.src,'fast.webp');
 assert.equal(jacket.alt,'Cachedのジャケット');
 console.log('PASS: loading hides previous jacket, stale requests, failures and cached selection');
+
+// The requested adjacency applies across the full tree, including other units.
+const visibleIds=Array.from(run("playableTracks().map(t=>t.id)"));
+assert.equal(visibleIds[visibleIds.indexOf('machiawase')+1], 'taisetsu-na-hito-e');
+assert.ok(visibleIds.indexOf('dokomadega-boku')<visibleIds.indexOf('hanabi'));
+assert.ok(visibleIds.indexOf('dokomadega-boku')<visibleIds.indexOf('ai-no-uta'));
