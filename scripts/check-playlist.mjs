@@ -30,7 +30,7 @@ const source = (await readFile('dist/app.js', 'utf8')).replace(/init\(\);\s*$/, 
 vm.runInContext(source, context);
 vm.runInContext('tracks=fixtureTracks;events=fixtureEvents;renderedRows=makeRows();', context);
 const run = code => vm.runInContext(code, context);
-assert.equal(run('playableTracks().length'), 17);
+assert.equal(run('playableTracks().length'), 20);
 assert.equal(run('playableTracks()[0].id'), 'kataguruma');
 assert.equal(run('playableTracks().at(-1).id'), 'moonbow');
 
@@ -47,8 +47,10 @@ assert.equal(run('selected.id'), 'kataguruma');
 // Interleaved units must follow the visible tree, rather than JSON order or branch.
 run("selectTrack(tracks.find(t=>t.id==='white-trip'));");
 node('#audio').handlers.get('ended')();
-assert.equal(run('selected.id'), 'dokomadega-boku');
+assert.equal(run('selected.id'), 'kochobai');
 assert.equal(node('#audio').paused, false);
+
+assert.deepEqual(Array.from(run("playableTracks().filter(t=>t.historyEventId==='patalp').map(t=>t.id)")), ['supira','hanabi','ai-no-uta','dokomadega-boku','kochobai','machiawase','taisetsu-na-hito-e']);
 
 // The final track stops, and missing registered audio is skipped.
 run('selectTrack(playableTracks().at(-1));');

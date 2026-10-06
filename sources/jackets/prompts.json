@@ -58,6 +58,24 @@
       "scene": "An immense soft sky above a narrow line of distant town rooftops and trees, irregular watercolor cloud shapes, pale late-afternoon light breaking gently through gray-blue clouds. Airy contemplative jazz atmosphere, spacious composition with no figures, slate blue, ivory and subtle pale gold. The sky is the subject; no text.",
       "asset": "dist/jackets/sora.png",
       "mode": "new watercolor illustration using two existing jackets as style references"
+    },
+    {
+      "id": "hanabi",
+      "scene": "夏の川辺の花火",
+      "asset": "dist/jackets/hanabi.png",
+      "mode": "built-in image generation; title-only watercolor with midflower as style reference; no text"
+    },
+    {
+      "id": "taisetsu-na-hito-e",
+      "scene": "朝の窓辺に並ぶ二つのカップ",
+      "asset": "dist/jackets/taisetsu-na-hito-e.png",
+      "mode": "built-in image generation; title-only watercolor with midflower as style reference; no text"
+    },
+    {
+      "id": "ai-no-uta",
+      "scene": "月明かりの川沿いの散歩道",
+      "asset": "dist/jackets/ai-no-uta.png",
+      "mode": "built-in image generation; title-only watercolor with midflower as style reference; no text"
     }
   ]
 }

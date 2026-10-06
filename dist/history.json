@@ -181,9 +181,12 @@
       "reworkingNow": "当時の曲を今の生成AIで再制作しようとすると、曲が長すぎて、最後までうまく生成できないものが多い。"
     },
     "trackIds": [
+      "taisetsu-na-hito-e",
       "machiawase",
       "kochobai",
       "dokomadega-boku",
+      "ai-no-uta",
+      "hanabi",
       "supira"
     ],
     "members": [
@@ -201,7 +204,9 @@
     "approxConcurrentYears": 2,
     "shortLabel": "patalp (acoustic unit)",
     "displayYear": 2005,
-    "displayYearStatus": "placeholder"
+    "displayYearStatus": "placeholder",
+    "trackOrderStatus": "confirmed-display-placement-by-user",
+    "trackOrderNote": "2026-10-07本人指定：画面上で大切な人へは待ち合わせのすぐ後、花火・あいのうたはどこまでが僕の前。原曲の制作順・年の確定とは区別する。"
   },
   {
     "id": "chiba",
