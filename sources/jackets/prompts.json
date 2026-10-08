@@ -76,6 +76,12 @@
       "scene": "月明かりの川沿いの散歩道",
       "asset": "dist/jackets/ai-no-uta.png",
       "mode": "built-in image generation; title-only watercolor with midflower as style reference; no text"
+    },
+    {
+      "id": "fake",
+      "scene": "A quiet theatrical mask and its mirror reflection on a dressing table in soft window light; title-only concept, ivory-paper watercolor, no text.",
+      "asset": "dist/jackets/fake.png",
+      "mode": "built-in image generation with midflower as style reference"
     }
   ]
 }

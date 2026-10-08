@@ -621,5 +621,35 @@
     "jacketDisplayUrl": "jackets/ai-no-uta-display.webp",
     "jacketWidth": 1254,
     "jacketHeight": 1254
+  },
+  {
+    "id": "fake",
+    "title": "フェイク",
+    "createdYear": null,
+    "datePrecision": "period",
+    "displayPeriod": "2006年（仮） / felice",
+    "historyEventId": "felice",
+    "creationOrder": null,
+    "audioVersionYear": 2026,
+    "composer": "nozomitaguchi",
+    "lyricist": null,
+    "lyricCreditStatus": "non-owner-confirmed-by-user",
+    "lyricsByOwner": false,
+    "lyrics": null,
+    "notesThen": null,
+    "notesNow": null,
+    "audioSrc": "audio/fake.mp3",
+    "sourceUrl": "https://suno.com/song/23ffd3c1-225c-496a-b86c-18f5806965d0",
+    "sample": false,
+    "displayYear": 2005,
+    "displayYearStatus": "placeholder",
+    "creatorCreditTags": [
+      "#Music"
+    ],
+    "jacketUrl": "jackets/fake.png",
+    "jacketWidth": 1254,
+    "jacketHeight": 1254,
+    "jacketDisplayUrl": "jackets/fake-display.webp",
+    "displayAfterTrackId": "two-of-us"
   }
 ]

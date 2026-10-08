@@ -30,7 +30,7 @@ const source = (await readFile('dist/app.js', 'utf8')).replace(/init\(\);\s*$/, 
 vm.runInContext(source, context);
 vm.runInContext('tracks=fixtureTracks;events=fixtureEvents;renderedRows=makeRows();', context);
 const run = code => vm.runInContext(code, context);
-assert.equal(run('playableTracks().length'), 20);
+assert.equal(run('playableTracks().length'), 21);
 assert.equal(run('playableTracks()[0].id'), 'kataguruma');
 assert.equal(run('playableTracks().at(-1).id'), 'moonbow');
 
@@ -47,7 +47,7 @@ assert.equal(run('selected.id'), 'kataguruma');
 // Interleaved units must follow the visible tree, rather than JSON order or branch.
 run("selectTrack(tracks.find(t=>t.id==='white-trip'));");
 node('#audio').handlers.get('ended')();
-assert.equal(run('selected.id'), 'kochobai');
+assert.equal(run('selected.id'), 'ai-no-uta');
 assert.equal(node('#audio').paused, false);
 
 assert.deepEqual(Array.from(run("playableTracks().filter(t=>t.historyEventId==='patalp').map(t=>t.id)")), ['supira','dokomadega-boku','hanabi','ai-no-uta','kochobai','machiawase','taisetsu-na-hito-e']);
@@ -93,3 +93,6 @@ const visibleIds=Array.from(run("playableTracks().map(t=>t.id)"));
 assert.equal(visibleIds[visibleIds.indexOf('machiawase')+1], 'taisetsu-na-hito-e');
 assert.ok(visibleIds.indexOf('dokomadega-boku')<visibleIds.indexOf('hanabi'));
 assert.ok(visibleIds.indexOf('dokomadega-boku')<visibleIds.indexOf('ai-no-uta'));
+
+assert.equal(visibleIds[visibleIds.indexOf('two-of-us')+1], 'fake');
+assert.deepEqual(Array.from(run("playableTracks().filter(t=>t.historyEventId==='felice').map(t=>t.id)")), ['white-trip','sora','midflower','two-of-us','fake']);

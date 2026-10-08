@@ -37,4 +37,4 @@ for(const track of tracks){
  }
  if(!track.lyricsByOwner)assert.ok(!page.includes('<h2>歌詞</h2>'),'non-owner lyrics must not appear in static fallback');
 }
-console.log('PASS: 20 static song URLs, canonical metadata, nested assets and lyric privacy');
+console.log('PASS: 21 static song URLs, canonical metadata, nested assets and lyric privacy');
