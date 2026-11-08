@@ -14,9 +14,22 @@
 
 `tracks.json`のサンプルを複製する。`id`は一意。年代が未確認の曲は、推測年を入れず、対応する時代の表示方法を実装してから追加する。正確な年が不明でもhistoryEventIdで時期に紐付けできる。
 
-`lyricsByOwner`は本人作詞ならtrue。それ以外はfalseかつlyrics:null。画面に出さない歌詞をJSONに残さない。
+`lyricsByOwner`は本人作詞ならtrue。それ以外はfalseにし、歌詞ファイルを作らない。
 
 音源はGitの容量制限を考慮し、正式な保存方法を決めてから追加する。試作のローカル音源選択は保存や配信ではない。
+
+## 歌詞とProduction notesを編集する
+
+| 内容 | 編集ファイル |
+| --- | --- |
+| 歌詞 | `content/songs/<曲ID>/lyrics.md` |
+| Production notes | `content/songs/<曲ID>/production-notes.md` |
+
+たとえば [モノクロの編集ファイル](../content/songs/monochrome/) をGitHubで開き、鉛筆アイコンから編集できる。ノートを新規追加する場合は、該当する曲IDのフォルダに `production-notes.md` を作成する。
+
+歌詞は1行ごとの改行が表示に反映され、空行で連を区切る。ノートでは見出し、箇条書き、強調、引用、リンクなどのMarkdownが使える。ファイルがない場合や空の場合、その項目は表示されない。
+
+ローカルで確認するには `npm ci` → `npm run build` → `npm run check` → `npm start`。生成された `dist/song-content.json` と曲別HTMLは手動で編集しない。mainに反映すると、GitHub PagesがMarkdownから配信用のデータとHTMLを再生成する。
 
 ## 曲に紐づかない「時代のノーツ」
 

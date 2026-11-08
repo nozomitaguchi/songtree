@@ -1,9 +1,17 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
+import {renderSongContent} from './song-content.mjs';
 const tracks=JSON.parse(await readFile('dist/tracks.json','utf8'));
 const history=JSON.parse(await readFile('dist/history.json','utf8'));
 assert.equal(new Set(tracks.map(t=>t.id)).size,tracks.length,'duplicate track id');
-for(const t of tracks){assert.ok(t.title);assert.equal(typeof t.lyricsByOwner,'boolean');if(!t.lyricsByOwner)assert.equal(t.lyrics,null,'non-owner lyrics must never be shipped');}
+const content=JSON.parse(await readFile('dist/song-content.json','utf8'));
+assert.deepEqual(content, {...await renderSongContent(tracks)}, 'song content must match the Markdown sources; run npm run build');
+for(const t of tracks){
+ assert.ok(t.title);
+ assert.equal(typeof t.lyricsByOwner,'boolean');
+ for(const field of ['lyrics','notesThen','notesNow'])assert.ok(!Object.hasOwn(t,field), 'song text belongs in Markdown');
+ if(!t.lyricsByOwner)assert.equal(content[t.id].lyrics,'','non-owner lyrics must never be shipped');
+}
 assert.equal(new Set(history.map(e=>e.id)).size,history.length,'duplicate event id');
 assert.equal(history[0].year,1985);
 assert.ok(history.filter(e=>e.dating==='unknown').every(e=>e.year===null),'unknown dates must stay unknown');
@@ -16,7 +24,7 @@ console.log('PASS: syntax, unique IDs, lyric omission, inferred and unknown date
 for(const track of tracks){
  const page=await readFile(`dist/songs/${track.id}/index.html`,'utf8');
  assert.ok(page.includes(`<link rel="canonical" href="https://nozomitaguchi.github.io/songtree/songs/${track.id}/">`),'song canonical URL');
- assert.ok(page.includes('<base href="/songtree/">'),'nested pages must resolve assets at the site root');
+ assert.ok(page.includes('<base href="../../">'),'nested pages must resolve assets at the site root');
  assert.ok(page.indexOf('<base ')<page.indexOf('src="app.js'),'base must precede script preload');
  assert.ok(page.indexOf('<base ')<page.indexOf('href="styles.css'),'base must precede stylesheet preload');
  assert.ok(!page.includes('noindex'),'public songs must be indexable');
@@ -35,6 +43,9 @@ for(const track of tracks){
   assert.equal(bytes.readUInt32BE(16), track.jacketWidth, 'jacket width');
   assert.equal(bytes.readUInt32BE(20), track.jacketHeight, 'jacket height');
  }
- if(!track.lyricsByOwner)assert.ok(!page.includes('<h2>歌詞</h2>'),'non-owner lyrics must not appear in static fallback');
+ for(const [heading, body] of [['歌詞', content[track.id].lyrics], ['Production notes', content[track.id].notes]]) {
+  if(body)assert.ok(page.includes(`<h2>${heading}</h2><div class="song-markdown">${body}</div>`),'fallback must match rendered song content');
+  else assert.ok(!page.includes(`<h2>${heading}</h2>`),'empty content must not appear in static fallback');
+ }
 }
 console.log('PASS: 21 static song URLs, canonical metadata, nested assets and lyric privacy');

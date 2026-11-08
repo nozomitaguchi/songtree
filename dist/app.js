@@ -1,7 +1,7 @@
 'use strict';
 const $=s=>document.querySelector(s);
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
-let tracks=[],events=[],selected=null,selectedDetail=null,localAudioUrl=null;
+let tracks=[],events=[],songContent={},selected=null,selectedDetail=null,localAudioUrl=null;
 const audio=$('#audio');
 const jacketLoads=new Map(),jacketRequests=new WeakMap();
 function loadJacket(url){
@@ -67,7 +67,7 @@ function currentTrackId(){
  const match=url.pathname.match(/\/songs\/([^/]+)\/?$/);
  return url.searchParams.get('song')||(match?decodeURIComponent(match[1]):null);
 }
-function trackUrl(id){const url=new URL(window.location.href);url.pathname=id?'/songtree/songs/'+encodeURIComponent(id)+'/':'/songtree/';url.searchParams.delete('song');url.hash='';return url;}
+function trackUrl(id){const url=new URL(window.location.href);url.pathname=new URL(id?'songs/'+encodeURIComponent(id)+'/':'./',document.baseURI).pathname;url.searchParams.delete('song');url.hash='';return url;}
 function updateTrackUrl(id){const url=trackUrl(id);if(url.href!==window.location.href)window.history.pushState(null,'',url);}
 function closeDetail(){updateTrackUrl(null);$('#detail').close();document.title='Songtree';}
 function syncTrackUrl(){
@@ -87,20 +87,20 @@ function openDetail(t,updateUrl=true){
  $('#share-url').hidden=true;
  $('#share-url').value=trackUrl(t.id).href;
  selectedDetail=t;
- const hasLyrics=Boolean(t.lyricsByOwner&&t.lyrics);
- const notes=[t.notesThen,t.notesNow].filter(Boolean).join('\n\n');
+ const {lyrics='',notes=''}=songContent[t.id]??{};
+ const hasLyrics=Boolean(t.lyricsByOwner&&lyrics);
  $('#detail').dataset.branch=branchFor(events.find(e=>e.id===t.historyEventId)||{});
  $('#detail-title').textContent=t.title;
  setJacket('#detail-jacket',t);
  $('#credits').replaceChildren();
  for(const tag of t.creatorCreditTags||[])$('#credits').append(el('span',tag,'credit-tag'));
- $('#notes-then').textContent=notes;
+ $('#notes-panel').innerHTML=notes;
  $('#detail-play').hidden=!t.audioSrc;
  $('.detail-actions').hidden=false;
  $('[data-panel="notes"]').hidden=!notes;
  $('[data-panel="lyrics"]').hidden=!hasLyrics;
  $('#detail-tabs').hidden=!(notes&&hasLyrics);
- $('#lyrics').textContent=hasLyrics?t.lyrics:'';
+ $('#lyrics-panel').innerHTML=hasLyrics?lyrics:'';
  setPanel(hasLyrics?'lyrics':'notes');
  $('#notes-panel').hidden=!notes||hasLyrics;
  if(!$('#detail').open){$('#detail').showModal();$('#detail-title').focus({preventScroll:true});}
@@ -127,5 +127,5 @@ function makeRows(){const rows=[];for(const e of events){if(e.id==='patalp')cont
 function render(){const list=$('#history-list');list.replaceChildren();renderedRows=makeRows();for(const row of renderedRows){const li=el('li',undefined,'log-row '+row.kind+'-row '+row.branch);li.dataset.key=row.key;li.dataset.branch=row.branch;if(row.kind==='song'){const b=el('button',undefined,'song-commit');b.setAttribute('aria-label',row.track.title+'の音源・歌詞・Production notesを開く');b.append(el('span',row.track.title,'commit-title'));if(row.track.creatorCreditTags?.length){const tags=el('span',undefined,'credit-tags');for(const value of row.track.creatorCreditTags)tags.append(el('span',value,'credit-tag'));b.append(tags);}b.addEventListener('pointerenter',()=>warmJacket(row.track));b.addEventListener('focus',()=>warmJacket(row.track));b.addEventListener('click',()=>openDetail(row.track));li.append(b);}else{const e=row.event;const label=el('div',undefined,'event-line');const value=e.displayYear||e.year;const year=value?String(value):'—';label.append(el('span',year,'log-year'),el('span',e.shortLabel||e.title,'event-label'));li.append(label);}list.append(li);}requestAnimationFrame(drawGraph);}
 function drawGraph(){const svg=$('#graph');svg.replaceChildren();if(!renderedRows.length)return;const height=$('#tree').offsetHeight;const width=svg.getBoundingClientRect().width;svg.setAttribute('viewBox',`0 0 ${width} ${height}`);const x={main:width*.17,rock:width*.50,felice:width*.50,patalp:width*.83};const domRows=[...$('#history-list').children];const coords=renderedRows.map((row,i)=>({...row,y:domRows[i].offsetTop+domRows[i].firstElementChild.offsetTop+domRows[i].firstElementChild.offsetHeight/2}));const palette=getComputedStyle(document.documentElement);const colors=Object.fromEntries(['main','rock','felice','patalp'].map(branch=>[branch,palette.getPropertyValue('--'+branch).trim()]));const ns='http://www.w3.org/2000/svg';const path=(d,color)=>{const p=document.createElementNS(ns,'path');p.setAttribute('d',d);p.setAttribute('stroke',color);p.setAttribute('stroke-width','1.8');p.setAttribute('fill','none');svg.append(p);};const mainRows=coords.filter(r=>r.branch==='main');path(`M ${x.main} ${mainRows[0].y} L ${x.main} ${mainRows.at(-1).y}`,colors.main);for(const branch of ['rock','felice','patalp']){const branchRows=coords.filter(r=>r.branch===branch);const oldestBranch=coords.findLastIndex(r=>r.branch===branch);const origin=coords.slice(oldestBranch+1).find(r=>r.branch==='main');if(!origin||!branchRows.length)continue;const first=branchRows.at(-1).y,last=branchRows[0].y;const bend=-Math.min(30,(origin.y-first)/2);path(`M ${x.main} ${origin.y} C ${x.main} ${origin.y+bend}, ${x[branch]} ${origin.y+bend}, ${x[branch]} ${first} L ${x[branch]} ${last}`,colors[branch]);}for(const row of coords){const circle=document.createElementNS(ns,'circle');circle.setAttribute('cx',String(x[row.branch]));circle.setAttribute('cy',String(row.y));circle.setAttribute('r',row.kind==='song'?'5.5':'3');circle.setAttribute('fill',row.kind==='song'?colors[row.branch]:'#fafaf7');circle.setAttribute('stroke',colors[row.branch]);circle.setAttribute('stroke-width','1.8');svg.append(circle);if(row.kind==='song'){const hit=document.createElementNS(ns,'circle');hit.setAttribute('cx',String(x[row.branch]));hit.setAttribute('cy',String(row.y));hit.setAttribute('r','12');hit.setAttribute('fill','transparent');hit.style.pointerEvents='all';hit.style.cursor='pointer';hit.addEventListener('click',()=>openDetail(row.track));svg.append(hit);}}}
 const observer=new ResizeObserver(()=>requestAnimationFrame(drawGraph));observer.observe($('#tree'));window.addEventListener('resize',()=>requestAnimationFrame(drawGraph));
-async function init(){try{const responses=await Promise.all([fetch('tracks.json',{cache:'no-store'}),fetch('history.json',{cache:'no-store'})]);if(responses.some(r=>!r.ok))throw Error('data');[tracks,events]=await Promise.all(responses.map(r=>r.json()));render();syncTrackUrl();}catch{$('#error').hidden=false;$('#error').textContent='履歴を読み込めませんでした。ページを再読み込みしてください。';}}
+async function init(){try{$('base').href=document.baseURI;const responses=await Promise.all([fetch('tracks.json',{cache:'no-store'}),fetch('history.json',{cache:'no-store'}),fetch('song-content.json',{cache:'no-store'})]);if(responses.some(r=>!r.ok))throw Error('data');[tracks,events,songContent]=await Promise.all(responses.map(r=>r.json()));render();syncTrackUrl();}catch{$('#error').hidden=false;$('#error').textContent='履歴を読み込めませんでした。ページを再読み込みしてください。';}}
 init();

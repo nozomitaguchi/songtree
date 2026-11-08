@@ -6,9 +6,11 @@ nozomitaguchiの曲を、枝分かれする履歴としてたどるサイト。�
 
 ## 起動
 
-Node.js 18以降。依存パッケージ不要。
+Node.js 18以降。
 
 ```sh
+npm ci
+npm run build
 npm start
 ```
 
@@ -24,7 +26,7 @@ Gitの履歴に似たツリーで表示する。本人の音楽の歩みを幹�
 
 約2年間の並行活動を枝の並行として表示。活動終了の表示は行わず、最後の曲の記録まで線を描く。開始・終了の正確な年、同時期の曲順は未確認。線の長さは時間の長さを表さず、patalpを終了や合流として描かない。
 
-経歴と曲に紐づかない「時代のノーツ」は `dist/history.json`、曲とライナーノーツは `dist/tracks.json`。曲名が分かっている17曲を登録済み。制作年・同時期内の曲順には未確認項目がある。全17曲のMP3を登録し、曲詳細から直接再生できる。制作順のデータは保持し、画面は新しい記録から古い記録へ並べる。
+経歴と曲に紐づかない「時代のノーツ」は `dist/history.json`、曲のメタデータは `dist/tracks.json`、歌詞とProduction notesは [曲ごとのMarkdown](content/songs/) に置く。曲名が分かっている17曲を登録済み。制作年・同時期内の曲順には未確認項目がある。全17曲のMP3を登録し、曲詳細から直接再生できる。制作順のデータは保持し、画面は新しい記録から古い記録へ並べる。
 
 ## 管理
 
@@ -40,6 +42,7 @@ Gitの履歴に似たツリーで表示する。本人の音楽の歩みを幹�
 - `AGENTS.md`：AIによる制作・レビューの指示
 - `docs/CONTENT.md`：曲・経歴の入力手順
 - `docs/DESIGN_REVIEW.md`：レビュー観点と現時点の検証範囲
+- `content/songs/`：曲ごとの歌詞・Production notesの編集用Markdown
 - `dist/`：配信ファイル
 - `scripts/`：起動とチェック
 - `.openai/hosting.json`：本人のみ閲覧できるSitesプレビューの設定
@@ -52,7 +55,7 @@ GitHubを正本とする。Sitesで修正した場合も同じソースをGitHub
 
 ヘッダーはポートフォリオのアイコンとSongtree by nozomitaguchiを左揃えの1行に配置。登録音源は詳細の「再生」から直接再生し、固定プレイヤーは曲名・再生操作・閉じる操作に絞る。再生失敗は表示する。
 
-Production notesは本人のポートフォリオにある8曲の本文を転記。原文の出典URL・GitHub blob SHAをtracks.jsonに記録し、転記前のノーツ本文をsources/production-notes.jsonに保存。未掲載曲のノーツは創作しない。
+Production notesは本人のポートフォリオにある8曲の本文を転記。原文の出典URL・GitHub blob SHAをtracks.jsonに記録し、転記前のノーツ本文をsources/production-notes.jsonに保存。編集は `content/songs/<曲ID>/production-notes.md` で行う。未掲載曲のノーツは創作しない。
 
 最新ヘッダーはポートフォリオのアイコンと、Songtree by nozomitaguchiを隣り合わせの1行で表示。
 

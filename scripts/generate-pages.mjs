@@ -1,10 +1,12 @@
 import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
+import { renderSongContent } from './song-content.mjs';
 
 const root = new URL('../dist/', import.meta.url);
 const site = 'https://nozomitaguchi.github.io/songtree/';
 const cover = 'https://nozomitaguchi.github.io/assets/songtree-cover-ipad.png';
 const description = 'nozomitaguchiが作ってきた曲を、枝分かれする年表でたどる音楽サイト。音源・歌詞・Production notesを収録。';
 const tracks = JSON.parse(await readFile(new URL('tracks.json', root), 'utf8'));
+const content = await renderSongContent(tracks);
 const source = await readFile(new URL('index.html', root), 'utf8');
 const template = source.replace(/<!-- SEO START -->[\s\S]*?<!-- SEO END -->/g, '')
   .replace(/<title>[\s\S]*?<\/title>/, '')
@@ -20,7 +22,8 @@ function render(track) {
   const imageWidth = track?.jacketWidth || 1672;
   const imageHeight = track?.jacketHeight || 941;
   const imageAlt = track?.jacketUrl ? `${track.title}のジャケット` : 'iPadに表示されたSongtreeとギター';
-  const summary = track ? `${track.title} — nozomitaguchiの曲。音源${track.lyricsByOwner ? '・歌詞' : ''}${track.notesThen || track.notesNow ? '・Production notes' : ''}をSongtreeで。` : description;
+  const { lyrics, notes } = content[track?.id] ?? {};
+  const summary = track ? `${track.title} — nozomitaguchiの曲。音源${lyrics ? '・歌詞' : ''}${notes ? '・Production notes' : ''}をSongtreeで。` : description;
   const entity = track ? {
     '@type': 'MusicComposition', name: track.title, url, image, composer: creator,
     ...(track.lyricsByOwner ? { lyricist: creator } : {}),
@@ -30,7 +33,7 @@ function render(track) {
     mainEntity: { '@type': 'ItemList', itemListElement: tracks.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t.title, url: trackUrl(t) })) },
   };
   const metadata = `<!-- SEO START -->
-<base href="/songtree/">
+<base href="${track ? '../../' : './'}">
 ${track?.jacketDisplayUrl ? `<link rel="preload" as="image" href="${escape(track.jacketDisplayUrl)}">` : ''}
 <title>${escape(title)}</title>
 <meta name="description" content="${escape(summary)}">
@@ -62,11 +65,12 @@ ${track?.jacketDisplayUrl ? `<link rel="preload" as="image" href="${escape(track
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', ...entity }).replaceAll('<', '\\u003c')}</script>
 <!-- SEO END -->`;
   const fallback = track
-    ? `<h1>${escape(track.title)}</h1>${track.jacketUrl ? `<img src="${escape(track.jacketDisplayUrl || track.jacketUrl)}" alt="${escape(imageAlt)}" width="240" height="240">` : ''}<p>${escape(summary)}</p>${track.audioSrc ? `<audio controls src="${escape(track.audioSrc)}"></audio>` : ''}${track.lyricsByOwner && track.lyrics ? `<h2>歌詞</h2><pre>${escape(track.lyrics)}</pre>` : ''}${track.notesThen || track.notesNow ? `<h2>Production notes</h2><p>${escape([track.notesThen, track.notesNow].filter(Boolean).join('\n\n'))}</p>` : ''}<a href="${site}">Songtree</a>`
+    ? `<h1>${escape(track.title)}</h1>${track.jacketUrl ? `<img src="${escape(track.jacketDisplayUrl || track.jacketUrl)}" alt="${escape(imageAlt)}" width="240" height="240">` : ''}<p>${escape(summary)}</p>${track.audioSrc ? `<audio controls src="${escape(track.audioSrc)}"></audio>` : ''}${lyrics ? `<h2>歌詞</h2><div class="song-markdown">${lyrics}</div>` : ''}${notes ? `<h2>Production notes</h2><div class="song-markdown">${notes}</div>` : ''}<a href="${site}">Songtree</a>`
     : `<h1>Songtree</h1><p>${escape(description)}</p><ul>${tracks.map(t => `<li><a href="${trackUrl(t)}">${escape(t.title)}</a></li>`).join('')}</ul>`;
   return template.replace('<head>', `<head>${metadata}`).replace('</body>', `<noscript data-seo><main>${fallback}</main></noscript></body>`);
 }
 
+await writeFile(new URL('song-content.json', root), JSON.stringify(content, null, 2) + '\n');
 await rm(new URL('songs/', root), { recursive: true, force: true });
 await writeFile(new URL('index.html', root), render(null));
 for (const track of tracks) {
